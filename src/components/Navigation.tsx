@@ -21,25 +21,25 @@ export default function Navigation() {
       <div className="container-custom">
         <nav className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center">
-            <a href="/" className="text-2xl font-bold text-primary">
+            <a href="/" className="text-2xl font-bold text-primary-dark">
               UServe
             </a>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-primary hover:text-accent transition-colors">
+            <a href="#services" className="text-secondary hover:text-primary-dark transition-colors">
               Services
             </a>
-            <a href="#how-it-works" className="text-primary hover:text-accent transition-colors">
+            <a href="#how-it-works" className="text-secondary hover:text-primary-dark transition-colors">
               How It Works
             </a>
-            <a href="#about" className="text-primary hover:text-accent transition-colors">
+            <a href="#about" className="text-secondary hover:text-primary-dark transition-colors">
               About
             </a>
-            <Button variant="ghost" className="text-primary hover:text-accent">
+            <Button variant="ghost" className="text-secondary hover:text-primary-dark">
               Sign In
             </Button>
-            <Button className="bg-primary hover:bg-primary-dark">
+            <Button className="bg-primary-dark hover:bg-primary text-white">
               Get Started
             </Button>
           </div>
@@ -47,7 +47,7 @@ export default function Navigation() {
           <button className="md:hidden p-2" aria-label="Menu">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-primary"
+              className="h-6 w-6 text-primary-dark"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
