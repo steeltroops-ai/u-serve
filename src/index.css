@@ -7,25 +7,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 96%;
-    --foreground: 0 0% 20%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 20%;
+    --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 20%;
-    --primary: 177 71% 56%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 16 100% 65%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 177 71% 56%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221 47% 24%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 14% 53%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 120 15% 60%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 47% 24%;
     --radius: 0.5rem;
   }
 
@@ -39,11 +39,11 @@
   }
 
   body {
-    @apply bg-[#F5F5F5] text-secondary antialiased;
+    @apply bg-background text-foreground antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-medium tracking-tight text-secondary;
+    @apply font-medium tracking-tight;
   }
 }
 
@@ -61,30 +61,6 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-dark to-accent;
-  }
-
-  .service-icon {
-    @apply p-3 rounded-lg;
-  }
-
-  .service-icon.home {
-    @apply bg-primary/10 text-primary;
-  }
-
-  .service-icon.auto {
-    @apply bg-accent-green/10 text-accent-green;
-  }
-
-  .service-icon.personal {
-    @apply bg-accent/10 text-accent;
-  }
-
-  .service-icon.repair {
-    @apply bg-primary-dark/10 text-primary-dark;
-  }
-
-  .service-icon.pet {
-    @apply bg-accent-yellow/10 text-accent-yellow;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-light to-accent;
   }
 }
