@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <div className="min-h-[90vh] flex items-center justify-center section-padding bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-[90vh] pt-20 flex items-center justify-center section-padding bg-gradient-to-b from-white to-gray-50">
       <div className="container-custom">
         <div className="text-center space-y-8 animate-fade-down">
           <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent-dark text-sm font-medium">
