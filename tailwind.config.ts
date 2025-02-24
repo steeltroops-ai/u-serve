@@ -27,18 +27,18 @@ export default {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "#40E0D0", // Turquoise
-          light: "#5FEEE0",
-          dark: "#0047AB", // Cobalt Blue
+          light: "#5CEADC",
+          dark: "#008080", // Dark Blue-Green
         },
         secondary: {
           DEFAULT: "#333333", // Dark Gray
-          light: "#4A4A4A",
+          light: "#4D4D4D",
           dark: "#262626",
         },
         accent: {
-          DEFAULT: "#FFD700", // Golden Yellow
-          light: "#FFE347",
-          dark: "#E6C200",
+          DEFAULT: "#FF7F50", // Coral
+          yellow: "#FFD700", // Sunny Yellow
+          green: "#006400", // Deep Green
         },
       },
       keyframes: {
