@@ -1,9 +1,11 @@
 
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,25 +23,25 @@ export default function Navigation() {
       <div className="container-custom">
         <nav className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center">
-            <a href="/" className="text-2xl font-bold text-primary">
+            <Link to="/" className="text-2xl font-bold text-primary">
               UServe
-            </a>
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-primary hover:text-accent transition-colors">
+            <Link to="/services" className="text-primary hover:text-accent transition-colors">
               Services
-            </a>
+            </Link>
             <a href="#how-it-works" className="text-primary hover:text-accent transition-colors">
               How It Works
             </a>
             <a href="#about" className="text-primary hover:text-accent transition-colors">
               About
             </a>
-            <Button variant="ghost" className="text-primary hover:text-accent">
+            <Button variant="ghost" className="text-primary hover:text-accent" onClick={() => navigate("/signin")}>
               Sign In
             </Button>
-            <Button className="bg-primary hover:bg-primary-dark">
+            <Button className="bg-primary hover:bg-primary-dark" onClick={() => navigate("/signup")}>
               Get Started
             </Button>
           </div>
