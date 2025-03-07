@@ -36,9 +36,9 @@ export default {
           dark: "#6C7A7B",
         },
         accent: {
-          DEFAULT: "#86B084",
-          light: "#97C195",
-          dark: "#759E73",
+          DEFAULT: "#3498DB",
+          light: "#5DADE2",
+          dark: "#2980B9",
         },
       },
       keyframes: {
@@ -70,11 +70,30 @@ export default {
             opacity: "1",
           },
         },
+        "scale-up": {
+          "0%": {
+            transform: "scale(0.95)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "scale(1)",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
         "fade-down": "fade-down 0.5s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
+        "scale-up": "scale-up 0.4s ease-out",
+      },
+      boxShadow: {
+        'premium': '0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'hero-gradient': 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
       },
     },
   },

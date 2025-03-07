@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
+import { Mail, Lock, ArrowRight } from "lucide-react";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -38,53 +39,73 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8]">
+    <div className="min-h-screen bg-hero-gradient">
       <Navigation />
       <div className="container-custom pt-32 pb-10 flex justify-center">
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md shadow-premium">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-center">Sign in to UServe</CardTitle>
+            <CardTitle className="text-2xl font-bold text-center text-primary">Welcome Back</CardTitle>
             <CardDescription className="text-center">
-              Enter your email below to sign in to your account
+              Sign in to your account to continue
             </CardDescription>
           </CardHeader>
           
-          <CardContent className="space-y-4">
-            <form onSubmit={handleEmailSignIn} className="space-y-4">
+          <CardContent className="space-y-6">
+            <form onSubmit={handleEmailSignIn} className="space-y-5">
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input 
-                  id="email" 
-                  type="email" 
-                  placeholder="name@example.com" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
+                <Label htmlFor="email" className="text-sm font-medium">Email</Label>
+                <div className="relative">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                    <Mail className="h-5 w-5" />
+                  </div>
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="name@example.com" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="pl-10 input-premium"
+                    required
+                  />
+                </div>
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="password">Password</Label>
-                  <Button variant="link" className="text-xs p-0 h-auto" type="button">
+                  <Label htmlFor="password" className="text-sm font-medium">Password</Label>
+                  <Button variant="link" className="text-xs p-0 h-auto text-accent" type="button">
                     Forgot password?
                   </Button>
                 </div>
-                <Input 
-                  id="password" 
-                  type="password" 
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
+                <div className="relative">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                    <Lock className="h-5 w-5" />
+                  </div>
+                  <Input 
+                    id="password" 
+                    type="password" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="pl-10 input-premium"
+                    required
+                  />
+                </div>
               </div>
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Signing in..." : "Sign In"}
+              <Button 
+                type="submit" 
+                className="w-full bg-accent hover:bg-accent-dark text-white rounded-lg h-11 font-medium" 
+                disabled={isLoading}
+              >
+                {isLoading ? "Signing in..." : (
+                  <span className="flex items-center">
+                    Sign In <ArrowRight className="ml-2 h-4 w-4" />
+                  </span>
+                )}
               </Button>
             </form>
             
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
+                <span className="w-full border-t border-border/50" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
                 <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
@@ -94,11 +115,11 @@ const SignIn = () => {
             <Button 
               variant="outline" 
               type="button" 
-              className="w-full" 
+              className="w-full rounded-lg h-11 border-border/50 hover:bg-accent/5 hover:border-accent/50 transition-all duration-300" 
               onClick={handleGoogleSignIn}
               disabled={isLoading}
             >
-              <svg viewBox="0 0 24 24" className="mr-2 h-4 w-4">
+              <svg viewBox="0 0 24 24" className="mr-2 h-5 w-5">
                 <path
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                   fill="#4285F4"
@@ -124,7 +145,7 @@ const SignIn = () => {
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-center text-sm">
               Don't have an account?{" "}
-              <Button variant="link" className="p-0 h-auto" onClick={() => navigate("/signup")}>
+              <Button variant="link" className="p-0 h-auto text-accent" onClick={() => navigate("/signup")}>
                 Sign up
               </Button>
             </div>
