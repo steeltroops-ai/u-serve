@@ -26,19 +26,19 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#2C3E50",
-          light: "#34495E",
-          dark: "#243342",
+          DEFAULT: "#0F3A2C",
+          light: "#1C5E48",
+          dark: "#0A2B21",
         },
         secondary: {
-          DEFAULT: "#7F8C8D",
-          light: "#95A5A6",
-          dark: "#6C7A7B",
+          DEFAULT: "#2D3436",
+          light: "#3D4549",
+          dark: "#212729",
         },
         accent: {
-          DEFAULT: "#3498DB",
-          light: "#5DADE2",
-          dark: "#2980B9",
+          DEFAULT: "#4EB382",
+          light: "#6DD19A",
+          dark: "#3A9B6B",
         },
       },
       keyframes: {
@@ -93,7 +93,8 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #1C5E48 0%, #0A2B21 100%)',
+        'card-gradient': 'linear-gradient(135deg, #f5f7fa 0%, #E2F3EB 100%)',
       },
     },
   },
