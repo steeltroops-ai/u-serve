@@ -17,24 +17,8 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-primary">
-      {/* Background with people images */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-white shadow-lg translate-x-1/4 -translate-y-1/3">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="absolute top-1/4 right-0 w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden border-2 border-white shadow-lg translate-x-1/3">
-          <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="absolute bottom-0 left-1/4 w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white shadow-lg -translate-y-1/4">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="absolute bottom-1/4 right-1/4 w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-white shadow-lg translate-y-1/4">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop" alt="" className="w-full h-full object-cover" />
-        </div>
-      </div>
-
-      <div className="container-custom relative z-10 py-12 md:py-24 flex items-center min-h-[70vh]">
+    <div className="relative bg-primary py-16 md:py-28">
+      <div className="container-custom relative z-10 flex items-center">
         <div className="max-w-3xl mx-auto text-center space-y-6 px-4">
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
             Scale your professional workforce with freelancers

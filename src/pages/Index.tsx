@@ -14,10 +14,10 @@ const Index = () => {
       <Hero />
       <Categories />
       <FeaturedServices />
-      <Testimonials />
       <HowItWorks />
+      <Testimonials />
       
-      {/* Footer Banner - Fiverr Style */}
+      {/* Footer Banner */}
       <section className="bg-primary py-10">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row justify-between items-center">

@@ -2,8 +2,8 @@
 import { Card } from "./ui/card";
 import { Link } from "react-router-dom";
 import { 
-  Code, Paintbrush, Video, Music, BookText, 
-  HeartHandshake, Home, Car, Globe, Layout 
+  Code, Paintbrush, Video, BookText, 
+  Globe, Layout 
 } from "lucide-react";
 
 const categories = [
