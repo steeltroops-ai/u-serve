@@ -2,12 +2,41 @@
 import { Button } from "./ui/button";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
+
+  const backgroundImages = [
+    "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049984/bg-hero-1-1792-x2.png",
+    "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203045/bg-hero-2-1792-x2.png",
+    "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/d14871e2d118f46db2c18ad882619ea8-1599835783966/bg-hero-3-1792-x2.png",
+  ];
+
+  const heroContent = [
+    {
+      title: "Find the perfect freelance services for your business",
+      person: "Andrea, Designer",
+    },
+    {
+      title: "Build your brand and grow your business",
+      person: "Moon, Developer",
+    },
+    {
+      title: "Engage your audience with professional content",
+      person: "Ritika, Marketing Expert",
+    },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev === backgroundImages.length - 1 ? 0 : prev + 1));
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,60 +46,89 @@ export default function Hero() {
   };
 
   return (
-    <div className="min-h-[85vh] relative overflow-hidden flex items-center">
-      {/* Background */}
-      <div className="absolute inset-0 bg-hero-gradient z-0"></div>
+    <div className="relative h-[70vh] overflow-hidden">
+      {/* Carousel */}
+      <div className="absolute inset-0 w-full h-full">
+        {backgroundImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+              currentSlide === index ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              backgroundImage: `url(${image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/30"></div>
+          </div>
+        ))}
+      </div>
       
-      {/* Background Elements */}
-      <div className="absolute -top-10 -right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-      
-      <div className="container-custom relative z-10 py-16">
-        <div className="max-w-3xl mx-auto text-center space-y-8 animate-fade-down">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            Find the perfect <span className="text-accent">service</span> for your needs
-          </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Connect with skilled service providers from around the world. Get your project done quickly and efficiently.
-          </p>
-          
-          {/* Search Bar - Fiverr Style */}
-          <form onSubmit={handleSearch} className="relative flex max-w-2xl mx-auto mt-8">
-            <div className="relative flex-grow">
-              <Input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search for services..."
-                className="pl-4 pr-10 py-7 rounded-l-full border-0 shadow-lg w-full text-lg focus-visible:ring-accent"
-              />
-            </div>
-            <Button 
-              type="submit"
-              size="lg" 
-              className="rounded-r-full bg-accent hover:bg-accent-dark text-white h-auto py-7 px-8"
-            >
-              <Search className="h-5 w-5" />
-            </Button>
-          </form>
-          
-          {/* Popular Searches */}
-          <div className="text-sm text-white/90 pt-4">
-            <span className="font-medium mr-2">Popular:</span>
-            {["Website Design", "Logo Design", "Content Writing", "Video Editing", "Home Repair"].map((term, i) => (
-              <span 
-                key={i} 
-                className="inline-block m-1 px-3 py-1 bg-white/10 rounded-full cursor-pointer hover:bg-white/20 transition-colors"
-                onClick={() => {
-                  setSearchQuery(term);
-                  navigate(`/services?search=${encodeURIComponent(term)}`);
-                }}
-              >
-                {term}
+      <div className="container-custom relative z-10 h-full flex items-center">
+        <div className="max-w-xl text-left animate-fade-in">
+          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight mb-4">
+              {heroContent[currentSlide].title}
+            </h1>
+            <p className="text-sm text-slate-600 mb-6">
+              <span className="text-primary font-medium">
+                {heroContent[currentSlide].person}
               </span>
-            ))}
+            </p>
+            
+            {/* Search Bar - Fiverr Style */}
+            <form onSubmit={handleSearch} className="flex w-full">
+              <div className="relative flex-grow">
+                <Input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search for services..."
+                  className="pl-4 pr-10 py-6 rounded-l-md border-0 shadow-md w-full text-base focus-visible:ring-accent"
+                />
+              </div>
+              <Button 
+                type="submit"
+                size="lg" 
+                className="rounded-r-md bg-accent hover:bg-accent/90 text-white h-auto py-6 px-6"
+              >
+                <Search className="h-5 w-5" />
+              </Button>
+            </form>
+            
+            {/* Popular Searches */}
+            <div className="text-xs text-slate-700 pt-4">
+              <span className="font-medium mr-2">Popular:</span>
+              {["Website Design", "Logo Design", "Content Writing", "Video Editing"].map((term, i) => (
+                <span 
+                  key={i} 
+                  className="inline-block m-1 px-2 py-1 bg-slate-100 rounded-full cursor-pointer hover:bg-slate-200 transition-colors"
+                  onClick={() => {
+                    setSearchQuery(term);
+                    navigate(`/services?search=${encodeURIComponent(term)}`);
+                  }}
+                >
+                  {term}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
+      </div>
+      
+      {/* Slide Indicators */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+        {backgroundImages.map((_, index) => (
+          <button
+            key={index}
+            className={`w-2 h-2 rounded-full ${
+              currentSlide === index ? "bg-white" : "bg-white/50"
+            }`}
+            onClick={() => setCurrentSlide(index)}
+          />
+        ))}
       </div>
     </div>
   );
