@@ -1,55 +1,65 @@
 
-import { Check } from "lucide-react";
-import { Button } from "./ui/button";
+import { CheckCircle2, Search, Heart, Calendar } from "lucide-react";
+
+const steps = [
+  {
+    icon: Search,
+    title: "Find Services",
+    description: "Browse through thousands of services in various categories that match your needs"
+  },
+  {
+    icon: Heart,
+    title: "Choose a Service",
+    description: "Compare service packages, read reviews, and select the perfect provider for your project"
+  },
+  {
+    icon: Calendar,
+    title: "Get It Done",
+    description: "Communicate, collaborate, and quickly get your project completed by professionals"
+  },
+  {
+    icon: CheckCircle2,
+    title: "Leave a Review",
+    description: "Share your experience to help the community and support great service providers"
+  }
+];
 
 export default function HowItWorks() {
   return (
-    <section className="py-16 bg-white">
+    <section id="how-it-works" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
-        <div className="text-left mb-8">
-          <h2 className="text-2xl font-bold text-gray-800">
-            Make it all happen with freelancers
+        <div className="text-center mb-16 animate-fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            How It Works
           </h2>
+          <p className="text-secondary max-w-2xl mx-auto">
+            Get your project done in four simple steps
+          </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="space-y-3">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-300 text-gray-800 font-semibold">
-              1
-            </div>
-            <h3 className="font-semibold text-gray-800">Post a job</h3>
-            <p className="text-gray-600 text-sm">Describe your project and get matched with the perfect freelancer</p>
-          </div>
-          
-          <div className="space-y-3">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-300 text-gray-800 font-semibold">
-              2
-            </div>
-            <h3 className="font-semibold text-gray-800">Choose your talent</h3>
-            <p className="text-gray-600 text-sm">Compare profiles, ratings, and portfolios to find the right fit</p>
-          </div>
-          
-          <div className="space-y-3">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-300 text-gray-800 font-semibold">
-              3
-            </div>
-            <h3 className="font-semibold text-gray-800">Pay securely</h3>
-            <p className="text-gray-600 text-sm">Release payments only when you're completely satisfied with the work</p>
-          </div>
-          
-          <div className="space-y-3">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-300 text-gray-800 font-semibold">
-              4
-            </div>
-            <h3 className="font-semibold text-gray-800">Leave a review</h3>
-            <p className="text-gray-600 text-sm">Share your experience and help maintain our quality community</p>
-          </div>
-        </div>
-        
-        <div className="mt-12 text-center">
-          <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-6 text-lg rounded-md">
-            Get Started
-          </Button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center space-y-4 animate-fade-up"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <div className="relative">
+                  <div className="absolute -inset-3 bg-accent/10 rounded-full blur-md"></div>
+                  <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-card border border-accent/20">
+                    <Icon className="h-8 w-8 text-accent" />
+                  </div>
+                  <div className="absolute -right-3 -top-3 flex items-center justify-center w-6 h-6 rounded-full bg-accent text-white text-xs font-bold">
+                    {index + 1}
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-primary mt-4">{step.title}</h3>
+                <p className="text-secondary">{step.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -17,27 +17,38 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative bg-primary py-16 md:py-28">
-      <div className="container-custom relative z-10 flex items-center">
-        <div className="max-w-3xl mx-auto text-center space-y-6 px-4">
-          <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-            Scale your professional workforce with freelancers
+    <div className="min-h-[85vh] relative overflow-hidden flex items-center">
+      {/* Background */}
+      <div className="absolute inset-0 bg-hero-gradient z-0"></div>
+      
+      {/* Background Elements */}
+      <div className="absolute -top-10 -right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      
+      <div className="container-custom relative z-10 py-16">
+        <div className="max-w-3xl mx-auto text-center space-y-8 animate-fade-down">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            Find the perfect <span className="text-accent">service</span> for your needs
           </h1>
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+            Connect with skilled service providers from around the world. Get your project done quickly and efficiently.
+          </p>
           
           {/* Search Bar - Fiverr Style */}
-          <form onSubmit={handleSearch} className="relative flex max-w-xl mx-auto mt-8 rounded-md overflow-hidden bg-white shadow-lg">
+          <form onSubmit={handleSearch} className="relative flex max-w-2xl mx-auto mt-8">
             <div className="relative flex-grow">
               <Input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for services..."
-                className="pl-4 pr-10 py-7 border-0 w-full text-base focus-visible:ring-0"
+                className="pl-4 pr-10 py-7 rounded-l-full border-0 shadow-lg w-full text-lg focus-visible:ring-accent"
               />
             </div>
             <Button 
               type="submit"
-              className="rounded-none bg-accent hover:bg-accent-dark text-white h-auto py-7 px-8"
+              size="lg" 
+              className="rounded-r-full bg-accent hover:bg-accent-dark text-white h-auto py-7 px-8"
             >
               <Search className="h-5 w-5" />
             </Button>
