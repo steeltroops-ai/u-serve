@@ -1,38 +1,43 @@
 
-import { CheckCircle2, Search, ThumbsUp, Calendar } from "lucide-react";
+import { CheckCircle2, Search, Heart, Calendar } from "lucide-react";
 
 const steps = [
   {
     icon: Search,
-    title: "Search Services",
-    description: "Browse through our extensive list of verified service providers in your area"
+    title: "Find Services",
+    description: "Browse through thousands of services in various categories that match your needs"
   },
   {
-    icon: ThumbsUp,
-    title: "Compare & Choose",
-    description: "Read reviews, compare prices, and select the perfect provider for your needs"
+    icon: Heart,
+    title: "Choose a Service",
+    description: "Compare service packages, read reviews, and select the perfect provider for your project"
   },
   {
     icon: Calendar,
-    title: "Book Instantly",
-    description: "Schedule your service with just a few clicks and get instant confirmation"
+    title: "Get It Done",
+    description: "Communicate, collaborate, and quickly get your project completed by professionals"
+  },
+  {
+    icon: CheckCircle2,
+    title: "Leave a Review",
+    description: "Share your experience to help the community and support great service providers"
   }
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="section-padding bg-gradient-to-b from-white to-gray-50">
+    <section id="how-it-works" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
         <div className="text-center mb-16 animate-fade-up">
-          <span className="text-accent text-sm font-medium uppercase tracking-wider">Process</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
             How It Works
           </h2>
           <p className="text-secondary max-w-2xl mx-auto">
-            Getting started is easy. Find and book local services in just three simple steps
+            Get your project done in four simple steps
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
