@@ -5,6 +5,7 @@ import Categories from "../components/Categories";
 import FeaturedServices from "../components/FeaturedServices";
 import HowItWorks from "../components/HowItWorks";
 import Testimonials from "../components/Testimonials";
+import Footer from "../components/Footer";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <FeaturedServices />
       <HowItWorks />
       <Testimonials />
+      <Footer />
     </main>
   );
 };
