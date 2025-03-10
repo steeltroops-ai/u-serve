@@ -46,7 +46,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative h-[70vh] overflow-hidden">
+    <div className="relative h-[600px] overflow-hidden">
       {/* Carousel */}
       <div className="absolute inset-0 w-full h-full">
         {backgroundImages.map((image, index) => (
@@ -61,19 +61,19 @@ export default function Hero() {
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black/30"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
         ))}
       </div>
       
       <div className="container-custom relative z-10 h-full flex items-center">
         <div className="max-w-xl text-left animate-fade-in">
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+          <div className="bg-white/95 backdrop-blur-sm p-8 rounded-lg shadow-lg">
             <h1 className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight mb-4">
               {heroContent[currentSlide].title}
             </h1>
             <p className="text-sm text-slate-600 mb-6">
-              <span className="text-primary font-medium">
+              <span className="text-slate-700 font-medium">
                 {heroContent[currentSlide].person}
               </span>
             </p>
@@ -86,13 +86,13 @@ export default function Hero() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search for services..."
-                  className="pl-4 pr-10 py-6 rounded-l-md border-0 shadow-md w-full text-base focus-visible:ring-accent"
+                  className="pl-4 pr-10 py-6 rounded-l-md border-0 shadow-md w-full text-base focus-visible:ring-slate-400"
                 />
               </div>
               <Button 
                 type="submit"
                 size="lg" 
-                className="rounded-r-md bg-accent hover:bg-accent/90 text-white h-auto py-6 px-6"
+                className="rounded-r-md bg-slate-800 hover:bg-slate-700 text-white h-auto py-6 px-6"
               >
                 <Search className="h-5 w-5" />
               </Button>
@@ -119,14 +119,15 @@ export default function Hero() {
       </div>
       
       {/* Slide Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
         {backgroundImages.map((_, index) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full ${
-              currentSlide === index ? "bg-white" : "bg-white/50"
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              currentSlide === index ? "bg-white scale-110" : "bg-white/50"
             }`}
             onClick={() => setCurrentSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
