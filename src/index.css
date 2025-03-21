@@ -83,4 +83,37 @@
   .material-header {
     @apply bg-gradient-to-r from-slate-700 to-slate-800 text-white p-4 rounded-t-xl;
   }
+  
+  /* New styles for improved Hero section */
+  .hero-gradient-overlay {
+    @apply bg-gradient-to-r from-black/60 via-black/40 to-transparent;
+  }
+  
+  .hero-content-card {
+    @apply bg-white/95 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-gray-100;
+  }
+  
+  .hero-search-input {
+    @apply pl-4 pr-10 py-6 rounded-l-md border-r-0 shadow-md w-full text-base focus-visible:ring-slate-400;
+  }
+  
+  .hero-search-button {
+    @apply rounded-r-md bg-slate-800 hover:bg-slate-700 text-white h-auto py-6 px-6;
+  }
+  
+  .hero-indicator {
+    @apply w-2.5 h-2.5 rounded-full transition-all duration-300;
+  }
+  
+  .hero-indicator-active {
+    @apply bg-white scale-110 w-8;
+  }
+  
+  .hero-indicator-inactive {
+    @apply bg-white/60 hover:bg-white/80;
+  }
+  
+  .popular-tag {
+    @apply inline-block m-1 px-2 py-1 bg-slate-100 rounded-full cursor-pointer hover:bg-slate-200 transition-colors;
+  }
 }

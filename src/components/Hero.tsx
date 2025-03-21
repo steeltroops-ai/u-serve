@@ -46,8 +46,8 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative h-[600px] overflow-hidden">
-      {/* Carousel */}
+    <div className="relative h-[500px] overflow-hidden">
+      {/* Carousel Background with Overlay */}
       <div className="absolute inset-0 w-full h-full">
         {backgroundImages.map((image, index) => (
           <div
@@ -61,14 +61,14 @@ export default function Hero() {
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
           </div>
         ))}
       </div>
       
       <div className="container-custom relative z-10 h-full flex items-center">
         <div className="max-w-xl text-left animate-fade-in">
-          <div className="bg-white/95 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+          <div className="bg-white/95 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-gray-100">
             <h1 className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight mb-4">
               {heroContent[currentSlide].title}
             </h1>
@@ -86,7 +86,7 @@ export default function Hero() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search for services..."
-                  className="pl-4 pr-10 py-6 rounded-l-md border-0 shadow-md w-full text-base focus-visible:ring-slate-400"
+                  className="pl-4 pr-10 py-6 rounded-l-md border-r-0 shadow-md w-full text-base focus-visible:ring-slate-400"
                 />
               </div>
               <Button 
@@ -118,13 +118,15 @@ export default function Hero() {
         </div>
       </div>
       
-      {/* Slide Indicators */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+      {/* Improved Slide Indicators */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
         {backgroundImages.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentSlide === index ? "bg-white scale-110" : "bg-white/50"
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              currentSlide === index 
+                ? "bg-white scale-110 w-8" 
+                : "bg-white/60 hover:bg-white/80"
             }`}
             onClick={() => setCurrentSlide(index)}
             aria-label={`Go to slide ${index + 1}`}
