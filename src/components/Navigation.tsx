@@ -20,38 +20,38 @@ export default function Navigation() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+      isScrolled ? "bg-slate-900/90 backdrop-blur-md shadow-md" : "bg-transparent"
     }`}>
       <div className="container-custom">
         <nav className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-gradient">
+            <Link to="/" className="text-2xl font-bold text-white">
               UServe
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/services" className="font-medium text-primary hover:text-accent transition-colors">
+            <Link to="/services" className="font-medium text-slate-300 hover:text-white transition-colors">
               Services
             </Link>
-            <a href="#how-it-works" className="font-medium text-primary hover:text-accent transition-colors">
+            <a href="#how-it-works" className="font-medium text-slate-300 hover:text-white transition-colors">
               How It Works
             </a>
-            <a href="#about" className="font-medium text-primary hover:text-accent transition-colors">
+            <a href="#about" className="font-medium text-slate-300 hover:text-white transition-colors">
               About
             </a>
-            <Button variant="ghost" className="font-medium text-primary hover:text-accent" onClick={() => navigate("/signin")}>
+            <Button variant="ghost" className="font-medium text-slate-300 hover:text-white" onClick={() => navigate("/signin")}>
               Sign In
             </Button>
-            <Button className="bg-accent hover:bg-accent-dark text-white rounded-full px-6" onClick={() => navigate("/signup")}>
+            <Button className="bg-slate-700 hover:bg-slate-600 text-white rounded-md px-6" onClick={() => navigate("/signup")}>
               Get Started
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 text-primary focus:outline-none" 
+            className="md:hidden p-2 text-white focus:outline-none" 
             aria-label="Menu"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -65,21 +65,21 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white shadow-lg rounded-b-xl animate-fade-down">
+          <div className="md:hidden bg-slate-800 shadow-lg rounded-b-xl animate-fade-down">
             <div className="flex flex-col space-y-4 p-6">
-              <Link to="/services" className="font-medium text-primary hover:text-accent transition-colors py-2">
+              <Link to="/services" className="font-medium text-slate-300 hover:text-white transition-colors py-2">
                 Services
               </Link>
-              <a href="#how-it-works" className="font-medium text-primary hover:text-accent transition-colors py-2">
+              <a href="#how-it-works" className="font-medium text-slate-300 hover:text-white transition-colors py-2">
                 How It Works
               </a>
-              <a href="#about" className="font-medium text-primary hover:text-accent transition-colors py-2">
+              <a href="#about" className="font-medium text-slate-300 hover:text-white transition-colors py-2">
                 About
               </a>
-              <Button variant="ghost" className="justify-start font-medium" onClick={() => navigate("/signin")}>
+              <Button variant="ghost" className="justify-start font-medium text-slate-300" onClick={() => navigate("/signin")}>
                 Sign In
               </Button>
-              <Button className="bg-accent hover:bg-accent-dark text-white w-full rounded-full" onClick={() => navigate("/signup")}>
+              <Button className="bg-slate-700 hover:bg-slate-600 text-white w-full rounded-md" onClick={() => navigate("/signup")}>
                 Get Started
               </Button>
             </div>

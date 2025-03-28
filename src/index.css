@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -115,6 +116,7 @@
     @apply inline-block m-1 px-2 py-1 bg-slate-100 rounded-full cursor-pointer hover:bg-slate-200 transition-colors;
   }
   
+  /* Dark theme components */
   .dark-card {
     @apply bg-slate-800 border-slate-700 rounded-xl shadow-lg overflow-hidden;
   }
@@ -135,6 +137,23 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
+  
+  /* Steam-inspired components */
+  .steam-input {
+    @apply bg-slate-800/80 border-slate-700 text-white focus:bg-slate-800 focus:border-slate-600;
+  }
+  
+  .steam-card {
+    @apply bg-slate-800/90 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden shadow-lg;
+  }
+  
+  .steam-button {
+    @apply bg-slate-700 hover:bg-slate-600 text-white rounded transition-colors;
+  }
+  
+  .steam-tag {
+    @apply px-2 py-1 text-xs bg-slate-800/80 text-slate-300 rounded-full cursor-pointer hover:bg-slate-700/80 transition-colors;
+  }
 }
 
 @layer utilities {
@@ -144,5 +163,13 @@
   
   .card-hover {
     @apply transition-transform duration-200 hover:scale-[1.02] hover:shadow-xl;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  }
+  
+  .bg-dark-gradient {
+    background: linear-gradient(to bottom, #1b2838, #121a24);
   }
 }
