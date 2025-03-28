@@ -8,10 +8,12 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+  const { state: sidebarState, toggleSidebar } = useSidebar();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,9 +31,20 @@ export default function Navigation() {
       <div className="container-custom">
         <nav className="flex items-center justify-between h-16">
           <div className="flex items-center gap-4">
+            {/* Sidebar trigger for desktop */}
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="text-white md:flex hidden transition-all duration-200 hover:bg-slate-800"
+              onClick={toggleSidebar}
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
+            
+            {/* Mobile menu */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-white">
+                <Button variant="ghost" size="icon" className="text-white md:hidden">
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
@@ -77,6 +90,7 @@ export default function Navigation() {
                 </div>
               </SheetContent>
             </Sheet>
+            
             <Link to="/" className="text-xl font-bold text-white">
               UServe
             </Link>
@@ -88,7 +102,7 @@ export default function Navigation() {
               <input
                 type="text"
                 placeholder="Search for services..."
-                className="w-full bg-slate-800 border border-slate-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full bg-slate-800 border border-slate-700 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all duration-300"
               />
               <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" />
             </div>
@@ -96,13 +110,24 @@ export default function Navigation() {
 
           {/* Right side icons and buttons */}
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="text-white hidden md:flex">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="text-white hidden md:flex hover:bg-slate-800 transition-all duration-200"
+            >
               <Bell className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-white hidden md:flex">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="text-white hidden md:flex hover:bg-slate-800 transition-all duration-200"
+            >
               <User className="h-5 w-5" />
             </Button>
-            <Button className="bg-blue-600 hover:bg-blue-500 text-white hidden md:flex" onClick={() => navigate("/signup")}>
+            <Button 
+              className="bg-blue-600 hover:bg-blue-500 text-white hidden md:flex transition-all duration-200" 
+              onClick={() => navigate("/signup")}
+            >
               Get Started
             </Button>
           </div>
