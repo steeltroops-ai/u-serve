@@ -1,9 +1,9 @@
+
 import Navigation from "../components/Navigation";
 import Hero from "../components/Hero";
 import Categories from "../components/Categories";
 import FeaturedServices from "../components/FeaturedServices";
-// Removed HowItWorks import
-// Removed Testimonials import
+import HowItWorks from "../components/HowItWorks";
 import Footer from "../components/Footer";
 
 const Index = () => {
@@ -14,8 +14,7 @@ const Index = () => {
         <Hero />
         <Categories />
         <FeaturedServices />
-        {/* Removed HowItWorks component */}
-        {/* Removed Testimonials component */}
+        <HowItWorks />
       </main>
       <Footer />
     </div>
