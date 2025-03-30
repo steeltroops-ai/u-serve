@@ -46,7 +46,7 @@ const Services = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-background text-foreground">
       <Navigation />
       <div className="pt-24 pb-12">
         {selectedService ? (
@@ -64,17 +64,17 @@ const Services = () => {
         ) : (
           <>
             {/* Header with search and categories dropdown */}
-            <div className="bg-gradient-to-r from-primary to-primary-dark text-white py-5">
+            <div className="bg-gradient-to-b from-background to-card/30 text-foreground py-5">
               <div className="container-custom">
                 <div className="flex flex-col md:flex-row gap-4 items-center">
                   <div className="relative flex-1">
-                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
                       <Search className="h-5 w-5" />
                     </div>
                     <Input
                       type="text"
                       placeholder="Search for services..."
-                      className="pl-10 py-6 w-full text-black rounded-md border-0 focus-visible:ring-accent"
+                      className="pl-10 py-6 w-full bg-card/50 text-foreground rounded-md border-border/50 focus-visible:ring-accent"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                     />
@@ -84,7 +84,7 @@ const Services = () => {
                       <DropdownMenuTrigger asChild>
                         <Button
                           variant="outline"
-                          className="bg-white text-primary border-0 hover:bg-white/90 py-6"
+                          className="bg-card text-foreground border-border/50 hover:bg-card/80 py-6"
                         >
                           <Filter className="mr-2 h-4 w-4" />
                           Categories
@@ -105,11 +105,14 @@ const Services = () => {
                         </DropdownMenuItem>
                         {[
                           "Home Services",
-                          "Repairs",
-                          "Home Improvement",
-                          "Pet Services",
                           "Automotive",
-                          "Personal Care",
+                          "Security Services",
+                          "Garden & Pool",
+                          "Technical Support",
+                          "Boda Boda Services",
+                          "Agricultural Services",
+                          "Solar Power",
+                          "Financial Services",
                         ].map((category) => (
                           <DropdownMenuItem
                             key={category}
@@ -125,7 +128,7 @@ const Services = () => {
                         ))}
                       </DropdownMenuContent>
                     </DropdownMenu>
-                    <Button className="bg-accent hover:bg-accent-dark text-white py-6">
+                    <Button className="netflix-button-primary py-6">
                       <Search className="mr-2 h-4 w-4" />
                       Search
                     </Button>
@@ -137,9 +140,9 @@ const Services = () => {
             <div className="container-custom mt-6">
               <div className="flex flex-col gap-6">
                 {/* Filters in a horizontal bar */}
-                <div className="bg-white rounded-lg shadow-sm p-4 flex flex-wrap gap-4 items-center">
+                <div className="bg-card/80 rounded-lg shadow-md border border-border/20 p-4 flex flex-wrap gap-4 items-center">
                   <div className="flex items-center">
-                    <span className="font-medium text-primary mr-2">
+                    <span className="font-medium text-foreground mr-2">
                       Filters:
                     </span>
                   </div>
@@ -150,7 +153,7 @@ const Services = () => {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="h-9 border-dashed flex items-center gap-1"
+                          className="h-9 border-dashed border-border/50 bg-card/50 text-foreground flex items-center gap-1"
                         >
                           <Filter className="h-3.5 w-3.5" />
                           <span>Price</span>
@@ -192,7 +195,7 @@ const Services = () => {
                               />
                               <label
                                 htmlFor={option.id}
-                                className="text-gray-700 cursor-pointer"
+                                className="text-foreground cursor-pointer"
                               >
                                 {option.label}
                               </label>
@@ -207,7 +210,7 @@ const Services = () => {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="h-9 border-dashed flex items-center gap-1"
+                          className="h-9 border-dashed border-border/50 bg-card/50 text-foreground flex items-center gap-1"
                         >
                           <Star className="h-3.5 w-3.5" />
                           <span>Rating</span>
@@ -218,7 +221,7 @@ const Services = () => {
                           {[4, 3, 2, 1].map((rating) => (
                             <div
                               key={rating}
-                              className="flex items-center cursor-pointer hover:bg-gray-50 p-1 rounded"
+                              className="flex items-center cursor-pointer hover:bg-card/50 p-1 rounded"
                               onClick={() =>
                                 setRatingFilter(
                                   rating === ratingFilter ? null : rating
@@ -238,7 +241,7 @@ const Services = () => {
                                     </span>
                                   ))}
                               </div>
-                              <span className="text-gray-700">& Up</span>
+                              <span className="text-foreground">& Up</span>
                             </div>
                           ))}
                         </div>
@@ -250,7 +253,7 @@ const Services = () => {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="h-9 border-dashed flex items-center gap-1"
+                          className="h-9 border-dashed border-border/50 bg-card/50 text-foreground flex items-center gap-1"
                         >
                           <ShoppingBag className="h-3.5 w-3.5" />
                           <span>Service Type</span>

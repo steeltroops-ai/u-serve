@@ -1,5 +1,11 @@
-
-import { CheckCircle2, Search, Heart, Calendar, Shield, Wallet } from "lucide-react";
+import {
+  CheckCircle2,
+  Search,
+  Heart,
+  Calendar,
+  Shield,
+  Wallet,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
@@ -22,7 +28,7 @@ const clientSteps = [
     icon: Calendar,
     title: "Book & Pay Securely",
     description:
-      "Schedule appointments and pay securely using local payment methods like MTN Mobile Money or SnapScan",
+      "Schedule appointments and pay securely using MTN Mobile Money or Airtel Money in Uganda, or SnapScan and EFT in South Africa",
   },
   {
     icon: CheckCircle2,
@@ -63,15 +69,16 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white"
+      className="py-20 bg-gradient-to-b from-background to-card/30"
     >
       <div className="container-custom">
         <div className="text-center mb-10 animate-fade-up">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            How LocalServe Works
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            How UServe Works
           </h2>
-          <p className="text-secondary max-w-2xl mx-auto">
-            Connecting local service providers with clients in Uganda and South Africa
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Connecting local service providers with clients in Uganda and South
+            Africa
           </p>
         </div>
 
@@ -80,7 +87,7 @@ export default function HowItWorks() {
             <TabsTrigger value="clients">For Clients</TabsTrigger>
             <TabsTrigger value="providers">For Service Providers</TabsTrigger>
           </TabsList>
-          
+
           <TabsContent value="clients" className="mt-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {clientSteps.map((step, index) => {
@@ -100,10 +107,10 @@ export default function HowItWorks() {
                         {index + 1}
                       </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-primary mt-4">
+                    <h3 className="text-xl font-semibold text-foreground mt-4">
                       {step.title}
                     </h3>
-                    <p className="text-secondary">{step.description}</p>
+                    <p className="text-muted-foreground">{step.description}</p>
                   </div>
                 );
               })}
@@ -116,7 +123,7 @@ export default function HowItWorks() {
               </Link>
             </div>
           </TabsContent>
-          
+
           <TabsContent value="providers" className="mt-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {providerSteps.map((step, index) => {
@@ -136,10 +143,10 @@ export default function HowItWorks() {
                         {index + 1}
                       </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-primary mt-4">
+                    <h3 className="text-xl font-semibold text-foreground mt-4">
                       {step.title}
                     </h3>
-                    <p className="text-secondary">{step.description}</p>
+                    <p className="text-muted-foreground">{step.description}</p>
                   </div>
                 );
               })}
@@ -154,12 +161,14 @@ export default function HowItWorks() {
           </TabsContent>
         </Tabs>
 
-        <div className="mt-16 bg-card/40 p-6 rounded-lg max-w-4xl mx-auto">
-          <h3 className="text-xl font-semibold text-primary mb-4 text-center">Supported Payment Methods</h3>
+        <div className="mt-16 glass-card p-6 rounded-lg max-w-4xl mx-auto">
+          <h3 className="text-xl font-semibold text-foreground mb-4 text-center">
+            Supported Payment Methods
+          </h3>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <h4 className="font-medium mb-2">Uganda</h4>
-              <ul className="text-sm space-y-1 text-secondary">
+              <h4 className="font-medium mb-2 text-foreground">Uganda</h4>
+              <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>MTN Mobile Money</li>
                 <li>Airtel Money</li>
                 <li>Stanbic Bank</li>
@@ -168,8 +177,8 @@ export default function HowItWorks() {
               </ul>
             </div>
             <div>
-              <h4 className="font-medium mb-2">South Africa</h4>
-              <ul className="text-sm space-y-1 text-secondary">
+              <h4 className="font-medium mb-2 text-foreground">South Africa</h4>
+              <ul className="text-sm space-y-1 text-muted-foreground">
                 <li>SnapScan</li>
                 <li>Zapper</li>
                 <li>EFT Payments</li>

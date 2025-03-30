@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -68,23 +67,25 @@ const benefits = [
     icon: Shield,
     title: "Secure Payments",
     description:
-      "Your payment is held securely until you approve the completed work",
+      "Your payment is held securely in escrow until service completion, with MTN Mobile Money and Airtel Money in Uganda, SnapScan and EFT in South Africa",
   },
   {
     icon: Users,
     title: "Verified Providers",
     description:
-      "All service providers undergo a thorough verification process",
+      "All service providers undergo a thorough verification process tailored to local requirements in Uganda and South Africa",
   },
   {
     icon: Clock,
-    title: "Time-Saving",
-    description: "Find, book, and manage services all in one place",
+    title: "Mobile-First Platform",
+    description:
+      "Optimized for mobile users with data-efficient design and offline capabilities for intermittent connectivity",
   },
   {
     icon: Zap,
-    title: "Quality Guarantee",
-    description: "If you're not satisfied, we'll help resolve any issues",
+    title: "Local Adaptation",
+    description:
+      "Services and features adapted to local needs with multilingual support and SMS notifications",
   },
 ];
 

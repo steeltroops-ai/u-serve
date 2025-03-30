@@ -13,78 +13,142 @@ const mockServices: Service[] = [
     price: 75,
     rating: 4.8,
     provider: "CleanHome Pro",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Professional home cleaning service with eco-friendly products. Our team will leave your home spotless with attention to detail in every corner. Services include dusting, vacuuming, mopping, and bathroom/kitchen deep cleaning."
+    image:
+      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Professional home cleaning service with eco-friendly products for homes in Johannesburg and Pretoria. Our team will leave your home spotless with attention to detail in every corner. Services include dusting, vacuuming, mopping, and bathroom/kitchen deep cleaning. Payment via SnapScan or EFT.",
   },
   {
     id: "2",
     title: "Plumbing Repair",
-    category: "Repairs",
+    category: "Home Services",
     price: 120,
     rating: 4.7,
     provider: "Quick Fix Plumbers",
-    image: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Expert plumbing repair services for all your needs. We handle leaky faucets, clogged drains, toilet repairs, pipe replacements, and emergency plumbing issues with guaranteed satisfaction."
+    image:
+      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Expert plumbing repair services for homes in Kampala and surrounding areas. We handle leaky faucets, clogged drains, toilet repairs, pipe replacements, and emergency plumbing issues with guaranteed satisfaction. We accept MTN Mobile Money and Airtel Money for convenient payment.",
   },
   {
     id: "3",
-    title: "Professional Landscaping",
-    category: "Home Improvement",
+    title: "Pool Maintenance",
+    category: "Garden & Pool",
     price: 200,
     rating: 4.9,
-    provider: "Green Gardens",
-    image: "https://images.unsplash.com/photo-1598902108854-10e335adac99?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Transform your outdoor space with our professional landscaping services. We offer garden design, lawn care, tree trimming, flower bed installation, and ongoing maintenance to keep your yard beautiful year-round."
+    provider: "Blue Waters",
+    image:
+      "https://images.unsplash.com/photo-1598902108854-10e335adac99?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Complete pool maintenance services for residential and commercial properties in Cape Town and Durban. We offer cleaning, chemical balancing, equipment repair, and regular maintenance to keep your pool crystal clear year-round. Services continue during load shedding with our backup systems.",
   },
   {
     id: "4",
-    title: "Dog Walking & Pet Care",
-    category: "Pet Services",
-    price: 30,
+    title: "Boda Boda Transport",
+    category: "Boda Boda Services",
+    price: 15,
     rating: 4.6,
-    provider: "Happy Tails",
-    image: "https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Reliable dog walking and pet care services. We provide daily walks, feeding, medication administration, and playtime for your furry friends. Our pet specialists are trained and passionate about animal care."
+    provider: "Swift Riders Uganda",
+    image:
+      "https://images.unsplash.com/photo-1597423498219-04418210827d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Fast and reliable motorcycle transport services in Kampala and Entebbe. We provide quick passenger transport, package delivery, and food delivery within the city. Our riders are experienced, licensed, and know the best routes to avoid traffic. Pay easily with MTN Mobile Money.",
   },
   {
     id: "5",
-    title: "Electrical Installation",
-    category: "Home Services",
-    price: 150,
+    title: "Solar Panel Installation",
+    category: "Solar Power",
+    price: 350,
     rating: 4.7,
-    provider: "PowerUp Electric",
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Professional electrical installation and repair services. Our licensed electricians can install new fixtures, repair faulty wiring, upgrade electrical panels, and provide safety inspections for your home or business."
+    provider: "SunPower Uganda",
+    image:
+      "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Professional solar power installation for homes and businesses in areas with unreliable electricity across Uganda. We provide consultation, installation, and maintenance of solar panels, inverters, and batteries for sustainable energy solutions. Financing options available through Stanbic Bank.",
   },
   {
     id: "6",
-    title: "Mobile Car Wash",
-    category: "Automotive",
-    price: 45,
-    rating: 4.5,
-    provider: "Sparkle Auto",
-    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Convenient mobile car wash that comes to your location. Services include exterior wash, waxing, interior vacuuming, dashboard cleaning, and tire shine. Eco-friendly products and professional results guaranteed."
+    title: "Home Security Installation",
+    category: "Security Services",
+    price: 245,
+    rating: 4.8,
+    provider: "SecureHome SA",
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Comprehensive home security solutions for South African homes in high-risk areas. We install alarm systems, CCTV cameras, electric fencing, and security gates with load-shedding protection. Our team provides 24/7 monitoring services and rapid response to security alerts. VodaPay and EFT accepted.",
   },
   {
     id: "7",
-    title: "Yoga Instructor",
-    category: "Personal Care",
-    price: 60,
+    title: "Mobile Money Services",
+    category: "Financial Services",
+    price: 20,
     rating: 4.9,
-    provider: "Peaceful Mind Yoga",
-    image: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Private yoga sessions tailored to your needs and skill level. Our certified instructors specialize in vinyasa, hatha, and restorative yoga. Sessions focus on flexibility, strength building, and mindfulness techniques."
+    provider: "MTN Mobile Money",
+    image:
+      "https://images.unsplash.com/photo-1580508174046-170816f65662?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Convenient mobile money services for deposits, withdrawals, and transfers in Kampala, Jinja, and Mbarara. Our agents provide MTN Mobile Money and Airtel Money services with competitive rates and reliable service throughout Uganda. We also offer cross-border money transfers to neighboring countries.",
   },
   {
     id: "8",
-    title: "Computer Repair",
-    category: "Repairs",
-    price: 85,
+    title: "Farm Equipment Repair",
+    category: "Agricultural Services",
+    price: 185,
     rating: 4.6,
-    provider: "Tech Wizards",
-    image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Fast and reliable computer repair services. We diagnose and fix hardware issues, remove viruses, recover data, upgrade components, and optimize performance for laptops and desktop computers."
+    provider: "AgriTech Solutions",
+    image:
+      "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Specialized repair and maintenance services for agricultural equipment in rural Uganda. We service tractors, irrigation systems, pumps, and other farm machinery. Our technicians provide on-site repairs to minimize downtime for your farming operations. We accept mobile money payments for convenience.",
+  },
+  {
+    id: "9",
+    title: "Garden Landscaping",
+    category: "Garden & Pool",
+    price: 160,
+    rating: 4.7,
+    provider: "Green Thumb SA",
+    image:
+      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Professional garden design and maintenance services for South African homes. We specialize in drought-resistant indigenous plants, irrigation systems, and sustainable garden designs. Our team provides regular maintenance to keep your garden beautiful year-round. SnapScan and Zapper accepted.",
+  },
+  {
+    id: "10",
+    title: "Domestic Worker Services",
+    category: "Home Services",
+    price: 95,
+    rating: 4.8,
+    provider: "HomeCare SA",
+    image:
+      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Reliable and professional domestic worker services in Johannesburg, Pretoria, and Cape Town. Our staff are thoroughly vetted, trained, and experienced in all aspects of home care. We offer daily, weekly, or monthly service plans to suit your needs. All workers are properly registered and insured.",
+  },
+  {
+    id: "11",
+    title: "Motorcycle Repair",
+    category: "Boda Boda Services",
+    price: 75,
+    rating: 4.5,
+    provider: "Boda Mechanics Uganda",
+    image:
+      "https://images.unsplash.com/photo-1596638787647-904d822d751e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Expert motorcycle repair services specializing in boda bodas throughout Kampala. Our mechanics provide tune-ups, engine repairs, tire replacements, and regular maintenance to keep your motorcycle running safely and efficiently. We offer mobile repair services that come to your location.",
+  },
+  {
+    id: "12",
+    title: "Solar Water Heating",
+    category: "Solar Power",
+    price: 275,
+    rating: 4.8,
+    provider: "EcoSun Solutions",
+    image:
+      "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description:
+      "Efficient solar water heating systems for homes and businesses in South Africa. Our systems provide hot water even during load shedding, saving you money on electricity bills. We offer consultation, installation, and maintenance services with financing options available through major banks.",
   },
 ];
 
@@ -94,42 +158,54 @@ interface ServicesCategoriesProps {
   selectedCategory: string | null;
 }
 
-const ServicesCategories = ({ onSelectService, searchQuery, selectedCategory }: ServicesCategoriesProps) => {
-  const [filteredServices, setFilteredServices] = useState<Service[]>(mockServices);
-  
+const ServicesCategories = ({
+  onSelectService,
+  searchQuery,
+  selectedCategory,
+}: ServicesCategoriesProps) => {
+  const [filteredServices, setFilteredServices] =
+    useState<Service[]>(mockServices);
+
   useEffect(() => {
     // Filter services based on search query and category
     let results = mockServices;
-    
+
     if (searchQuery) {
-      results = results.filter(service => 
-        service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        service.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        service.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        service.description.toLowerCase().includes(searchQuery.toLowerCase())
+      results = results.filter(
+        (service) =>
+          service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          service.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          service.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          service.description.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
-    
+
     if (selectedCategory) {
-      results = results.filter(service => service.category === selectedCategory);
+      results = results.filter(
+        (service) => service.category === selectedCategory
+      );
     }
-    
+
     setFilteredServices(results);
   }, [searchQuery, selectedCategory]);
 
   if (filteredServices.length === 0) {
     return (
       <div className="bg-white rounded-lg shadow-sm p-8 text-center">
-        <h3 className="text-xl font-medium text-gray-700 mb-2">No services found</h3>
-        <p className="text-gray-500">Try adjusting your search or filters to find what you're looking for.</p>
+        <h3 className="text-xl font-medium text-gray-700 mb-2">
+          No services found
+        </h3>
+        <p className="text-gray-500">
+          Try adjusting your search or filters to find what you're looking for.
+        </p>
       </div>
     );
   }
 
   // Create a map of services grouped by category
   const servicesByCategory: Record<string, Service[]> = {};
-  
-  filteredServices.forEach(service => {
+
+  filteredServices.forEach((service) => {
     if (!servicesByCategory[service.category]) {
       servicesByCategory[service.category] = [];
     }
@@ -141,11 +217,11 @@ const ServicesCategories = ({ onSelectService, searchQuery, selectedCategory }: 
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredServices.map((service, index) => (
-          <ServiceCard 
-            key={service.id} 
-            service={service} 
-            index={index} 
-            onSelectService={onSelectService} 
+          <ServiceCard
+            key={service.id}
+            service={service}
+            index={index}
+            onSelectService={onSelectService}
           />
         ))}
       </div>
@@ -165,11 +241,11 @@ const ServicesCategories = ({ onSelectService, searchQuery, selectedCategory }: 
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map((service, index) => (
-              <ServiceCard 
-                key={service.id} 
-                service={service} 
-                index={index} 
-                onSelectService={onSelectService} 
+              <ServiceCard
+                key={service.id}
+                service={service}
+                index={index}
+                onSelectService={onSelectService}
               />
             ))}
           </div>
@@ -188,14 +264,14 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ service, index, onSelectService }: ServiceCardProps) => {
   return (
-    <Card 
-      className="hover:shadow-lg transition-all duration-300 border border-gray-200 animate-fade-up h-full flex flex-col" 
+    <Card
+      className="hover:shadow-lg transition-all duration-300 border border-gray-200 animate-fade-up h-full flex flex-col"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className="h-44 overflow-hidden relative group">
-        <img 
-          src={service.image} 
-          alt={service.title} 
+        <img
+          src={service.image}
+          alt={service.title}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <button className="absolute top-2 right-2 p-1.5 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
@@ -220,14 +296,14 @@ const ServiceCard = ({ service, index, onSelectService }: ServiceCardProps) => {
         <div className="flex justify-between items-center mt-2">
           <div className="font-bold text-lg">${service.price}</div>
           <div className="flex gap-2">
-            <Button 
+            <Button
               size="sm"
               className="rounded-full h-8 w-8 p-0 bg-accent hover:bg-accent-dark"
               onClick={() => onSelectService(service)}
             >
               <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button 
+            <Button
               size="sm"
               variant="outline"
               className="flex items-center gap-1 border-accent text-accent hover:bg-accent/10"

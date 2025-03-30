@@ -14,67 +14,25 @@ import {
 
 // Background images for categories
 const categoryBackgrounds = {
-  "Programming & Tech":
-    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  "Graphics & Design":
-    "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  "Video & Animation":
-    "https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  "Writing & Translation":
-    "https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  "Music & Audio":
-    "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  Business:
-    "https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
   "Home Services":
     "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  Automotive:
+  "Automotive":
     "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+  "Security Services":
+    "https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+  "Garden & Pool":
+    "https://images.unsplash.com/photo-1598902108854-10e335adac99?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+  "Technical Support":
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+  "Boda Boda Services":
+    "https://images.unsplash.com/photo-1597423498219-04418210827d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+  "Agricultural Services":
+    "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+  "Solar Power":
+    "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
 };
 
 const categories = [
-  {
-    icon: Code,
-    name: "Programming & Tech",
-    count: "2,150+",
-    description: "Web, mobile and software development",
-    popular: true,
-  },
-  {
-    icon: Paintbrush,
-    name: "Graphics & Design",
-    count: "3,220+",
-    description: "Logos, websites, and visual arts",
-    popular: true,
-  },
-  {
-    icon: Video,
-    name: "Video & Animation",
-    count: "1,840+",
-    description: "Explainer videos, editing and more",
-    popular: false,
-  },
-  {
-    icon: BookText,
-    name: "Writing & Translation",
-    count: "1,590+",
-    description: "Articles, blog posts and creative content",
-    popular: false,
-  },
-  {
-    icon: Music,
-    name: "Music & Audio",
-    count: "950+",
-    description: "Voice overs, mixing and sound effects",
-    popular: false,
-  },
-  {
-    icon: HeartHandshake,
-    name: "Business",
-    count: "2,780+",
-    description: "Virtual assistance, market research",
-    popular: true,
-  },
   {
     icon: Home,
     name: "Home Services",
@@ -87,7 +45,49 @@ const categories = [
     name: "Automotive",
     count: "1,720+",
     description: "Car repair, detailing and maintenance",
+    popular: true,
+  },
+  {
+    icon: HeartHandshake,
+    name: "Security Services",
+    count: "1,450+",
+    description: "Home security installation and monitoring",
+    popular: true,
+  },
+  {
+    icon: Paintbrush,
+    name: "Garden & Pool",
+    count: "1,320+",
+    description: "Landscaping, pool maintenance and garden services",
+    popular: true,
+  },
+  {
+    icon: Code,
+    name: "Technical Support",
+    count: "1,150+",
+    description: "Computer and electronics repair",
     popular: false,
+  },
+  {
+    icon: Video,
+    name: "Boda Boda Services",
+    count: "1,840+",
+    description: "Transport and delivery via motorcycle",
+    popular: true,
+  },
+  {
+    icon: BookText,
+    name: "Agricultural Services",
+    count: "1,590+",
+    description: "Farm equipment repair, produce delivery",
+    popular: false,
+  },
+  {
+    icon: Music,
+    name: "Solar Power",
+    count: "950+",
+    description: "Installation and maintenance of solar systems",
+    popular: true,
   },
 ];
 

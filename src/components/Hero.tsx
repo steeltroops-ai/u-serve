@@ -1,12 +1,10 @@
 import { Button } from "./ui/button";
-import { Search, Play, Info, Plus } from "lucide-react";
-import { Input } from "./ui/input";
+import { Play, Info, Plus } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "./ui/card";
 
 export default function Hero() {
-  const [searchQuery, setSearchQuery] = useState("");
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
 
@@ -40,12 +38,7 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/services?search=${encodeURIComponent(searchQuery)}`);
-    }
-  };
+  // Search functionality moved to Navigation component
 
   // Categories for the top bar
   const categories = [
@@ -137,28 +130,6 @@ export default function Hero() {
 
       {/* Content Rows */}
       <div className="container-custom">
-        {/* Search Bar */}
-        <div className="py-6">
-          <form
-            onSubmit={handleSearch}
-            className="flex w-full max-w-xl mx-auto"
-          >
-            <Input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search for services..."
-              className="netflix-search h-10 pr-0 rounded-r-none w-full"
-            />
-            <Button
-              type="submit"
-              className="h-10 rounded-l-none rounded-r-md bg-accent hover:bg-accent/90 text-white px-3"
-            >
-              <Search className="h-4 w-4" />
-            </Button>
-          </form>
-        </div>
-
         {/* Categories Pills */}
         <div className="flex flex-wrap gap-2 justify-center mb-8">
           {categories.map((category, index) => (

@@ -1,9 +1,17 @@
-
 import { useState } from "react";
 import { Service } from "../pages/Services";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
-import { Star, Calendar, Clock, MapPin, Check, User, Phone, Mail } from "lucide-react";
+import {
+  Star,
+  Calendar,
+  Clock,
+  MapPin,
+  Check,
+  User,
+  Phone,
+  Mail,
+} from "lucide-react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useToast } from "../hooks/use-toast";
@@ -20,19 +28,21 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
     phone: "",
     address: "",
     date: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
@@ -48,7 +58,7 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
         phone: "",
         address: "",
         date: "",
-        message: ""
+        message: "",
       });
     }, 1500);
   };
@@ -57,34 +67,38 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <div className="lg:col-span-2 space-y-6">
         <div className="overflow-hidden rounded-lg shadow-md">
-          <img 
-            src={service.image} 
-            alt={service.title} 
+          <img
+            src={service.image}
+            alt={service.title}
             className="w-full h-64 md:h-80 object-cover"
           />
         </div>
-        
+
         <div>
           <div className="flex flex-wrap items-center justify-between mb-4">
-            <h1 className="text-2xl md:text-3xl font-bold text-[#333333]">{service.title}</h1>
+            <h1 className="text-2xl md:text-3xl font-bold text-[#333333]">
+              {service.title}
+            </h1>
             <span className="text-sm font-medium bg-[#40E0D0]/10 text-[#40E0D0] px-3 py-1.5 rounded-full mt-2 md:mt-0">
               {service.category}
             </span>
           </div>
-          
+
           <div className="flex items-center mb-4">
             <Star className="h-5 w-5 text-[#FFD700] fill-[#FFD700]" />
             <span className="ml-1 font-medium">{service.rating}</span>
             <span className="mx-2 text-gray-400">•</span>
             <span className="text-gray-700">{service.provider}</span>
           </div>
-          
+
           <p className="text-[#333333] mb-6 leading-relaxed">
             {service.description}
           </p>
-          
+
           <div className="bg-[#F8F8F8] p-5 rounded-lg border border-gray-200 mb-6">
-            <h3 className="font-semibold text-lg mb-4 text-[#333333]">Service Details</h3>
+            <h3 className="font-semibold text-lg mb-4 text-[#333333]">
+              Service Details
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-center">
                 <Clock className="h-5 w-5 text-[#40E0D0] mr-3" />
@@ -104,9 +118,39 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
               </div>
             </div>
           </div>
-          
+
+          <div className="bg-[#F8F8F8] p-5 rounded-lg border border-gray-200 mb-6">
+            <h3 className="font-semibold text-lg mb-4 text-[#333333]">
+              Payment Options
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-center">
+                <Phone className="h-5 w-5 text-[#40E0D0] mr-3" />
+                <span>MTN Mobile Money (Uganda)</span>
+              </div>
+              <div className="flex items-center">
+                <Phone className="h-5 w-5 text-[#40E0D0] mr-3" />
+                <span>Airtel Money (Uganda)</span>
+              </div>
+              <div className="flex items-center">
+                <Phone className="h-5 w-5 text-[#40E0D0] mr-3" />
+                <span>SnapScan (South Africa)</span>
+              </div>
+              <div className="flex items-center">
+                <Mail className="h-5 w-5 text-[#40E0D0] mr-3" />
+                <span>EFT Payment (South Africa)</span>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-gray-600">
+              Payment is held in escrow until service completion for your
+              security.
+            </p>
+          </div>
+
           <div className="space-y-3">
-            <h3 className="font-semibold text-lg text-[#333333]">What's Included</h3>
+            <h3 className="font-semibold text-lg text-[#333333]">
+              What's Included
+            </h3>
             <ul className="space-y-2">
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-[#0047AB] mr-2 mt-0.5" />
@@ -128,21 +172,30 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
           </div>
         </div>
       </div>
-      
+
       <div className="lg:col-span-1">
         <Card className="sticky top-24">
           <CardContent className="p-6">
             <div className="mb-6">
-              <h3 className="text-xl font-bold text-[#333333] mb-4">Book This Service</h3>
+              <h3 className="text-xl font-bold text-[#333333] mb-4">
+                Book This Service
+              </h3>
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-200">
                 <span className="text-gray-700">Service Price</span>
-                <span className="text-xl font-bold text-[#333333]">${service.price}</span>
+                <span className="text-xl font-bold text-[#333333]">
+                  ${service.price}
+                </span>
               </div>
             </div>
-            
+
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Full Name
+                </label>
                 <Input
                   id="name"
                   name="name"
@@ -153,9 +206,14 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
                   className="w-full"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Email
+                </label>
                 <Input
                   id="email"
                   name="email"
@@ -167,9 +225,14 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
                   className="w-full"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Phone
+                </label>
                 <Input
                   id="phone"
                   name="phone"
@@ -180,9 +243,14 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
                   className="w-full"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                <label
+                  htmlFor="address"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Address
+                </label>
                 <Input
                   id="address"
                   name="address"
@@ -193,9 +261,14 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
                   className="w-full"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
+                <label
+                  htmlFor="date"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Preferred Date
+                </label>
                 <Input
                   id="date"
                   name="date"
@@ -206,9 +279,14 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
                   className="w-full"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Special Instructions</label>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Special Instructions
+                </label>
                 <Textarea
                   id="message"
                   name="message"
@@ -218,13 +296,15 @@ const ServiceDetails = ({ service }: ServiceDetailsProps) => {
                   className="w-full min-h-[100px]"
                 />
               </div>
-              
-              <Button 
-                type="submit" 
+
+              <Button
+                type="submit"
                 className="w-full bg-[#0047AB] hover:bg-[#003380] text-white"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Processing..." : `Book Now - $${service.price}`}
+                {isSubmitting
+                  ? "Processing..."
+                  : `Book Now - $${service.price}`}
               </Button>
             </form>
           </CardContent>

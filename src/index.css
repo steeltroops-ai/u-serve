@@ -102,6 +102,31 @@
     @apply bg-gradient-to-b from-background/80 to-transparent;
   }
 
+  /* Enhanced header styles */
+  .profile-dropdown-item {
+    @apply flex items-center w-full px-2 py-1.5 text-sm rounded-sm hover:bg-accent/10 transition-colors;
+  }
+
+  .nav-link-hover {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent hover:after:w-full after:transition-all after:duration-300;
+  }
+
+  /* Animation for expanding search bar */
+  @keyframes expand-width {
+    from {
+      width: 200px;
+      opacity: 0.7;
+    }
+    to {
+      width: 350px;
+      opacity: 1;
+    }
+  }
+
+  .animate-expand-width {
+    animation: expand-width 0.3s ease-out forwards;
+  }
+
   .netflix-category-pill {
     @apply px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full hover:bg-accent hover:text-white transition-colors;
   }
