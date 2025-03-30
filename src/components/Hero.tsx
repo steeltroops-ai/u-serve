@@ -1,6 +1,5 @@
-
 import { Button } from "./ui/button";
-import { Search } from "lucide-react";
+import { Search, Play, Info, Plus } from "lucide-react";
 import { Input } from "./ui/input";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -34,7 +33,9 @@ export default function Hero() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === backgroundImages.length - 1 ? 0 : prev + 1));
+      setCurrentSlide((prev) =>
+        prev === backgroundImages.length - 1 ? 0 : prev + 1
+      );
     }, 6000);
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
@@ -45,172 +46,245 @@ export default function Hero() {
       navigate(`/services?search=${encodeURIComponent(searchQuery)}`);
     }
   };
-  
+
   // Categories for the top bar
-  const categories = ["Graphics & Design", "Digital Marketing", "Programming", "Video & Animation", "Writing"];
+  const categories = [
+    "Graphics & Design",
+    "Digital Marketing",
+    "Programming",
+    "Video & Animation",
+    "Writing",
+  ];
+
+  // Arrays of valid Unsplash image URLs for each category
+  const trendingImages = [
+    "https://images.unsplash.com/photo-1580894732444-8ecded7900cd",
+    "https://images.unsplash.com/photo-1552664730-d307ca884978",
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
+  ];
+
+  const programmingImages = [
+    "https://images.unsplash.com/photo-1587620962725-abab7fe55159",
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+    "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+    "https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2",
+    "https://images.unsplash.com/photo-1542831371-29b0f74f9713",
+  ];
+
+  const designImages = [
+    "https://images.unsplash.com/photo-1561070791-2526d30994b5",
+    "https://images.unsplash.com/photo-1626785774573-4b799315345d",
+    "https://images.unsplash.com/photo-1613979727371-5f59b8d55563",
+    "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9",
+    "https://images.unsplash.com/photo-1561070791-32d8b5eb2984",
+    "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e",
+  ];
 
   return (
-    <div className="relative bg-slate-900 min-h-screen overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0 z-0">
-        {backgroundImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              currentSlide === index ? "opacity-20" : "opacity-0"
-            }`}
-          >
-            <img 
-              src={image} 
-              alt={`Background ${index + 1}`} 
-              className="w-full h-full object-cover" 
-            />
-          </div>
-        ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/60"></div>
-      </div>
-      
-      {/* Top categories bar */}
-      <div className="relative z-10 border-b border-slate-700/60">
-        <div className="container-custom">
-          <div className="flex items-center space-x-6 overflow-x-auto scrollbar-none py-3">
-            {categories.map((category, index) => (
-              <button 
-                key={index}
-                className="text-slate-300 whitespace-nowrap hover:text-white transition-colors text-sm font-medium"
-                onClick={() => navigate(`/services?category=${encodeURIComponent(category)}`)}
-              >
-                {category}
-              </button>
-            ))}
-            <button className="text-slate-300 hover:text-white transition-colors">
-              <span className="flex items-center justify-center w-6 h-6 bg-slate-700/80 rounded-full">+</span>
-            </button>
+    <div className="relative bg-background min-h-screen overflow-hidden pt-0">
+      {/* Featured Banner - Netflix Style */}
+      <div className="netflix-featured w-full h-[70vh] relative">
+        {/* Featured Background */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80"
+            alt="Featured Service"
+            className="w-full h-full object-cover"
+          />
+          <div className="netflix-featured-overlay"></div>
+        </div>
+
+        {/* Featured Content */}
+        <div className="absolute bottom-0 left-0 p-6 md:p-12 w-full md:w-2/3 z-10">
+          <div className="space-y-4">
+            {/* Service Title */}
+            <h1 className="text-white text-3xl md:text-5xl font-bold">
+              Professional Web Development
+            </h1>
+
+            {/* Service Stats */}
+            <div className="flex items-center space-x-2 text-sm">
+              <span className="text-accent font-medium">4.9 Rating</span>
+              <span className="text-white/60">•</span>
+              <span className="text-white/80">2023</span>
+              <span className="text-white/60">•</span>
+              <span className="text-white/80">Full Stack</span>
+            </div>
+
+            {/* Service Description */}
+            <p className="text-white/90 text-sm md:text-base max-w-2xl">
+              Get your business online with professional web development
+              services. Our experts create responsive, modern websites that
+              drive results.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Button className="netflix-button-primary gap-2">
+                <Play className="h-4 w-4 fill-current" /> View Service
+              </Button>
+              <Button className="netflix-button-secondary gap-2">
+                <Info className="h-4 w-4" /> More Info
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-      
-      {/* Main hero content */}
-      <div className="container-custom relative z-10 py-8 md:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-6">
-          {/* Left side - Main featured content */}
-          <div className="lg:col-span-5">
-            <div className="rounded-xl overflow-hidden relative bg-slate-800/30 backdrop-blur-sm border border-slate-700/50">
-              <div className="aspect-video relative">
-                {backgroundImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 transition-opacity duration-1000 ${
-                      currentSlide === index ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    <img 
-                      src={image} 
-                      alt={`Slide ${index + 1}`} 
-                      className="w-full h-full object-cover" 
-                    />
-                    
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent"></div>
+
+      {/* Content Rows */}
+      <div className="container-custom">
+        {/* Search Bar */}
+        <div className="py-6">
+          <form
+            onSubmit={handleSearch}
+            className="flex w-full max-w-xl mx-auto"
+          >
+            <Input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search for services..."
+              className="netflix-search h-10 pr-0 rounded-r-none w-full"
+            />
+            <Button
+              type="submit"
+              className="h-10 rounded-l-none rounded-r-md bg-accent hover:bg-accent/90 text-white px-3"
+            >
+              <Search className="h-4 w-4" />
+            </Button>
+          </form>
+        </div>
+
+        {/* Categories Pills */}
+        <div className="flex flex-wrap gap-2 justify-center mb-8">
+          {categories.map((category, index) => (
+            <button
+              key={index}
+              className="netflix-category-pill"
+              onClick={() =>
+                navigate(`/services?category=${encodeURIComponent(category)}`)
+              }
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Trending Services Row */}
+        <div className="netflix-row">
+          <h2 className="netflix-row-title">Trending Services</h2>
+          <div className="netflix-content-slider">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <div
+                key={index}
+                className="netflix-card min-w-[250px] md:min-w-[280px]"
+              >
+                <div className="aspect-video relative">
+                  <img
+                    src={`${
+                      trendingImages[index % trendingImages.length]
+                    }?w=500&auto=format&fit=crop&q=80`}
+                    alt={`Trending service ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-2 right-2 p-1.5 bg-accent/90 rounded-full">
+                    <Plus className="h-4 w-4 text-white" />
                   </div>
-                ))}
-                
-                {/* Slide content */}
-                <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full md:w-2/3">
-                  <h1 className="text-white text-xl md:text-3xl font-bold mb-2">
-                    {heroContent[currentSlide].title}
-                  </h1>
-                  <p className="text-slate-300 text-sm mb-4">
-                    {heroContent[currentSlide].person}
-                  </p>
-                  
-                  {/* Search Bar */}
-                  <form onSubmit={handleSearch} className="flex w-full">
-                    <Input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search for services..."
-                      className="h-10 bg-slate-800/80 border-slate-700 text-white pr-0 rounded-r-none rounded-l-md w-full text-sm focus-visible:ring-slate-500 focus-visible:border-slate-500"
-                    />
-                    <Button 
-                      type="submit"
-                      className="h-10 rounded-l-none rounded-r-md bg-slate-700 hover:bg-slate-600 text-white px-3"
-                    >
-                      <Search className="h-4 w-4" />
-                    </Button>
-                  </form>
-                  
-                  {/* Popular searches */}
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {["Website Design", "Logo Design", "Content Writing", "Video Editing"].map((term, i) => (
-                      <span 
-                        key={i} 
-                        className="px-2 py-1 text-xs bg-slate-800/80 text-slate-300 rounded-full cursor-pointer hover:bg-slate-700/80 transition-colors"
-                        onClick={() => {
-                          setSearchQuery(term);
-                          navigate(`/services?search=${encodeURIComponent(term)}`);
-                        }}
-                      >
-                        {term}
-                      </span>
-                    ))}
+                </div>
+                <div className="p-3">
+                  <h3 className="text-foreground font-medium text-sm">
+                    Professional Service {index + 1}
+                  </h3>
+                  <div className="flex items-center mt-1">
+                    <span className="text-accent text-xs font-medium">
+                      4.{8 + (index % 2)} Rating
+                    </span>
+                    <span className="mx-1 text-foreground/40">•</span>
+                    <span className="text-foreground/70 text-xs">2023</span>
                   </div>
                 </div>
               </div>
-              
-              {/* Slide indicators */}
-              <div className="flex justify-center space-x-1.5 py-3 bg-slate-800/50">
-                {backgroundImages.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`rounded-full transition-all duration-300 ${
-                      currentSlide === index 
-                        ? "bg-white w-6 h-1.5" 
-                        : "bg-white/40 hover:bg-white/60 w-1.5 h-1.5"
-                    }`}
-                    onClick={() => setCurrentSlide(index)}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
-          
-          {/* Right side - Featured cards */}
-          <div className="lg:col-span-2 flex flex-col space-y-4">
-            {/* Top card */}
-            <Card className="bg-slate-800 border-slate-700 overflow-hidden shadow-xl flex-1">
-              <CardContent className="p-0">
-                <div className="relative">
-                  <img 
-                    src={backgroundImages[currentSlide === 0 ? 2 : currentSlide - 1]} 
-                    alt="Featured service" 
-                    className="w-full h-40 object-cover" 
+        </div>
+
+        {/* Popular in Programming Row */}
+        <div className="netflix-row">
+          <h2 className="netflix-row-title">Popular in Programming & Tech</h2>
+          <div className="netflix-content-slider">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <div
+                key={index}
+                className="netflix-card min-w-[250px] md:min-w-[280px]"
+              >
+                <div className="aspect-video relative">
+                  <img
+                    src={`${
+                      programmingImages[index % programmingImages.length]
+                    }?w=500&auto=format&fit=crop&q=80`}
+                    alt={`Programming service ${index + 1}`}
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 p-4">
-                    <h3 className="text-white text-lg font-semibold">Premium Service</h3>
-                    <p className="text-slate-300 text-sm">Starting at $49.99</p>
-                    <Button className="mt-3 w-full bg-slate-700 hover:bg-slate-600 text-white">
-                      View Details
-                    </Button>
+                  <div className="absolute top-2 right-2 p-1.5 bg-accent/90 rounded-full">
+                    <Plus className="h-4 w-4 text-white" />
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-            
-            {/* Bottom smaller cards */}
-            <div className="grid grid-cols-2 gap-4">
-              {["Popular", "New Services"].map((title, index) => (
-                <Card key={index} className="bg-slate-800 border-slate-700 overflow-hidden shadow-md">
-                  <CardContent className="p-4">
-                    <h4 className="text-white text-sm font-medium">{title}</h4>
-                    <p className="text-slate-400 text-xs mt-1">Explore now</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                <div className="p-3">
+                  <h3 className="text-foreground font-medium text-sm">
+                    Web Development {index + 1}
+                  </h3>
+                  <div className="flex items-center mt-1">
+                    <span className="text-accent text-xs font-medium">
+                      4.{7 + (index % 3)} Rating
+                    </span>
+                    <span className="mx-1 text-foreground/40">•</span>
+                    <span className="text-foreground/70 text-xs">2023</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Design Services Row */}
+        <div className="netflix-row">
+          <h2 className="netflix-row-title">Design Services</h2>
+          <div className="netflix-content-slider">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <div
+                key={index}
+                className="netflix-card min-w-[250px] md:min-w-[280px]"
+              >
+                <div className="aspect-video relative">
+                  <img
+                    src={`${
+                      designImages[index % designImages.length]
+                    }?w=500&auto=format&fit=crop&q=80`}
+                    alt={`Design service ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-2 right-2 p-1.5 bg-accent/90 rounded-full">
+                    <Plus className="h-4 w-4 text-white" />
+                  </div>
+                </div>
+                <div className="p-3">
+                  <h3 className="text-foreground font-medium text-sm">
+                    UI/UX Design {index + 1}
+                  </h3>
+                  <div className="flex items-center mt-1">
+                    <span className="text-accent text-xs font-medium">
+                      4.{9 - (index % 2)} Rating
+                    </span>
+                    <span className="mx-1 text-foreground/40">•</span>
+                    <span className="text-foreground/70 text-xs">2023</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

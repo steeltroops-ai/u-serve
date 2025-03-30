@@ -1,150 +1,197 @@
-
 import React from "react";
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ExternalLink, Github } from "lucide-react";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  ChevronRight,
+  ArrowUpRight,
+} from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Footer = () => {
+  const footerLinks = [
+    {
+      title: "Services",
+      links: [
+        { name: "Design & Creative", href: "/services?category=design" },
+        { name: "Web Development", href: "/services?category=development" },
+        { name: "Writing & Translation", href: "/services?category=writing" },
+      ],
+    },
+    {
+      title: "Company",
+      links: [
+        { name: "About Us", href: "/about" },
+        { name: "Contact", href: "/contact" },
+        { name: "Careers", href: "/careers" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { name: "Terms", href: "/terms" },
+        { name: "Privacy", href: "/privacy" },
+        { name: "Cookies", href: "/cookies" },
+      ],
+    },
+  ];
+
+  const socialLinks = [
+    {
+      icon: <Facebook size={18} />,
+      href: "https://facebook.com",
+      label: "Facebook",
+    },
+    {
+      icon: <Twitter size={18} />,
+      href: "https://twitter.com",
+      label: "Twitter",
+    },
+    {
+      icon: <Instagram size={18} />,
+      href: "https://instagram.com",
+      label: "Instagram",
+    },
+    {
+      icon: <Linkedin size={18} />,
+      href: "https://linkedin.com",
+      label: "LinkedIn",
+    },
+  ];
+
   return (
-    <footer className="bg-slate-900 text-white pt-16 pb-8">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Company Info */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">Freelance Services</h3>
-            <p className="text-gray-300 mb-4">
-              Find the perfect freelance services for your business or project. Connect with skilled professionals from around the world.
-            </p>
-            <div className="flex space-x-4 mt-6">
-              <a href="https://facebook.com" className="text-gray-300 hover:text-accent transition-colors" aria-label="Facebook">
-                <Facebook size={20} />
-              </a>
-              <a href="https://twitter.com" className="text-gray-300 hover:text-accent transition-colors" aria-label="Twitter">
-                <Twitter size={20} />
-              </a>
-              <a href="https://instagram.com" className="text-gray-300 hover:text-accent transition-colors" aria-label="Instagram">
-                <Instagram size={20} />
-              </a>
-              <a href="https://linkedin.com" className="text-gray-300 hover:text-accent transition-colors" aria-label="LinkedIn">
-                <Linkedin size={20} />
-              </a>
-              <a href="https://github.com" className="text-gray-300 hover:text-accent transition-colors" aria-label="GitHub">
-                <Github size={20} />
-              </a>
+    <footer className="bg-background border-t border-border/20">
+      {/* Top wave decoration */}
+      <div className="w-full overflow-hidden">
+        <svg
+          className="w-full h-12 -mb-px"
+          viewBox="0 0 1440 74"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,37.5 C240,12.5 480,62.5 720,37.5 C960,12.5 1200,62.5 1440,37.5 L1440,74 L0,74 Z"
+            fill="currentColor"
+            className="text-background"
+          />
+        </svg>
+      </div>
+
+      <div className="container mx-auto px-4 py-12">
+        {/* Main footer content */}
+        <div className="flex flex-col md:flex-row justify-between gap-12">
+          {/* Brand section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="md:w-1/3 space-y-6"
+          >
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
+                <ArrowUpRight size={16} className="text-white" />
+              </div>
+              <h2 className="text-xl font-bold text-white">u-serve</h2>
             </div>
-          </div>
 
-          {/* Categories */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">Categories</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/services?category=design" className="text-gray-300 hover:text-accent transition-colors flex items-center gap-2">
-                  <ExternalLink size={16} />
-                  <span>Design & Creative</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/services?category=development" className="text-gray-300 hover:text-accent transition-colors flex items-center gap-2">
-                  <ExternalLink size={16} />
-                  <span>Web Development</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/services?category=writing" className="text-gray-300 hover:text-accent transition-colors flex items-center gap-2">
-                  <ExternalLink size={16} />
-                  <span>Writing & Translation</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/services?category=marketing" className="text-gray-300 hover:text-accent transition-colors flex items-center gap-2">
-                  <ExternalLink size={16} />
-                  <span>Digital Marketing</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/services?category=video" className="text-gray-300 hover:text-accent transition-colors flex items-center gap-2">
-                  <ExternalLink size={16} />
-                  <span>Video & Animation</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
+            <p className="text-gray-400 text-sm max-w-md">
+              Connect with skilled professionals from around the world. Find the
+              perfect freelance services for your business or project.
+            </p>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/" className="text-gray-300 hover:text-accent transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-300 hover:text-accent transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-gray-300 hover:text-accent transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-300 hover:text-accent transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms" className="text-gray-300 hover:text-accent transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link to="/privacy" className="text-gray-300 hover:text-accent transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
+            <div className="flex space-x-3">
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={index}
+                  whileHover={{ y: -3 }}
+                  href={social.href}
+                  className="w-9 h-9 rounded-full bg-card flex items-center justify-center hover:bg-accent transition-colors duration-300"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">Contact Us</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="text-accent mt-1 flex-shrink-0" size={18} />
-                <span className="text-gray-300">123 Freelance Street, Creative District, 10001, USA</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="text-accent flex-shrink-0" size={18} />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="text-accent flex-shrink-0" size={18} />
-                <span className="text-gray-300">support@freelancers.com</span>
-              </li>
-            </ul>
+          {/* Links section */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+            {footerLinks.map((column, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-white font-medium mb-4">{column.title}</h3>
+                <ul className="space-y-3">
+                  {column.links.map((link, linkIdx) => (
+                    <motion.li
+                      key={linkIdx}
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      <Link
+                        to={link.href}
+                        className="text-gray-400 hover:text-accent text-sm flex items-center group transition-colors duration-300"
+                      >
+                        <ChevronRight
+                          size={14}
+                          className="mr-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                        />
+                        {link.name}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
         </div>
+      </div>
 
-        {/* Copyright */}
-        <div className="pt-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} Freelance Services. All rights reserved.
+      {/* Separate bottom copyright section with distinct styling */}
+      <div className="bg-background/80 backdrop-blur-sm border-t border-border/20 mt-12">
+        <div className="container mx-auto px-4 py-4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row justify-between items-center"
+          >
+            <p className="text-gray-500 text-xs mb-3 md:mb-0">
+              © {new Date().getFullYear()} u-serve. All rights reserved.
             </p>
-            <div className="flex space-x-6">
-              <Link to="/terms" className="text-gray-400 hover:text-accent text-sm transition-colors">
+
+            <div className="flex items-center space-x-4">
+              <Link
+                to="/terms"
+                className="text-gray-500 hover:text-accent text-xs transition-colors"
+              >
                 Terms
               </Link>
-              <Link to="/privacy" className="text-gray-400 hover:text-accent text-sm transition-colors">
+              <div className="w-1 h-1 rounded-full bg-gray-700"></div>
+              <Link
+                to="/privacy"
+                className="text-gray-500 hover:text-accent text-xs transition-colors"
+              >
                 Privacy
               </Link>
-              <Link to="/cookies" className="text-gray-400 hover:text-accent text-sm transition-colors">
+              <div className="w-1 h-1 rounded-full bg-gray-700"></div>
+              <Link
+                to="/cookies"
+                className="text-gray-500 hover:text-accent text-xs transition-colors"
+              >
                 Cookies
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </footer>

@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,26 +6,27 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 215 28% 17%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 220 14% 40%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.75rem;
+    /* Netflix-inspired dark theme */
+    --background: 220 13% 13%; /* Dark background */
+    --foreground: 210 40% 98%; /* Light text */
+    --card: 220 13% 18%; /* Slightly lighter card background */
+    --card-foreground: 210 40% 98%; /* Light text on cards */
+    --popover: 220 13% 18%; /* Popover background */
+    --popover-foreground: 210 40% 98%; /* Popover text */
+    --primary: 220 13% 13%; /* Primary background */
+    --primary-foreground: 210 40% 98%; /* Primary text */
+    --secondary: 220 13% 20%; /* Secondary background */
+    --secondary-foreground: 210 40% 98%; /* Secondary text */
+    --muted: 220 13% 22%; /* Muted background */
+    --muted-foreground: 217.9 10.6% 64.9%; /* Muted text */
+    --accent: 358 85% 52%; /* Netflix red accent */
+    --accent-foreground: 210 40% 98%; /* Text on accent */
+    --destructive: 0 84.2% 60.2%; /* Destructive action */
+    --destructive-foreground: 210 40% 98%; /* Text on destructive */
+    --border: 217.2 32.6% 17.5%; /* Dark borders */
+    --input: 217.2 32.6% 17.5%; /* Input borders */
+    --ring: 358 85% 52%; /* Focus ring (Netflix red) */
+    --radius: 0.5rem; /* Slightly smaller radius for modern look */
   }
 
   * {
@@ -34,7 +34,7 @@
   }
 
   html {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     scroll-behavior: smooth;
   }
 
@@ -42,22 +42,93 @@
     @apply bg-background text-foreground antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-medium tracking-tight;
   }
 }
 
 @layer components {
+  /* Netflix-inspired components */
+  .netflix-card {
+    @apply bg-card border-none rounded-md overflow-hidden shadow-md transition-all duration-300 hover:scale-105;
+  }
+
+  .netflix-row {
+    @apply py-6 space-y-4;
+  }
+
+  .netflix-row-title {
+    @apply text-lg md:text-xl font-medium text-foreground mb-4 pl-4;
+  }
+
+  .netflix-content-slider {
+    @apply flex space-x-4 overflow-x-auto pb-4 scrollbar-none;
+  }
+
+  .netflix-featured {
+    @apply relative rounded-md overflow-hidden;
+  }
+
+  .netflix-featured-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent;
+  }
+
+  .netflix-button-primary {
+    @apply bg-accent hover:bg-accent/90 text-white rounded-md px-6 py-2 font-medium transition-colors;
+  }
+
+  .netflix-button-secondary {
+    @apply bg-white/20 hover:bg-white/30 text-white rounded-md px-6 py-2 font-medium transition-colors;
+  }
+
+  .netflix-search {
+    @apply bg-card/50 border border-border/50 text-foreground rounded-md px-4 py-2 focus:ring-1 focus:ring-accent focus:border-accent;
+  }
+
+  .netflix-nav {
+    @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
+  }
+
+  .netflix-nav-scrolled {
+    @apply bg-background/90 backdrop-blur-md shadow-md;
+  }
+
+  .netflix-nav-transparent {
+    @apply bg-gradient-to-b from-background/80 to-transparent;
+  }
+
+  .netflix-category-pill {
+    @apply px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full hover:bg-accent hover:text-white transition-colors;
+  }
+
+  .netflix-indicator {
+    @apply w-2 h-2 rounded-full transition-all duration-300;
+  }
+
+  .netflix-indicator-active {
+    @apply bg-accent scale-110 w-6;
+  }
+
+  .netflix-indicator-inactive {
+    @apply bg-white/40 hover:bg-white/60;
+  }
+
+  /* Legacy components with updated styling */
   .glass-card {
-    @apply bg-white/90 backdrop-blur-md border border-white/20 shadow-lg rounded-xl;
+    @apply bg-card/80 backdrop-blur-md border border-border/20 shadow-lg rounded-md;
   }
-  
+
   .premium-card {
-    @apply rounded-xl border border-border/50 bg-white p-6 shadow-md transition-all hover:shadow-lg;
+    @apply rounded-md border border-border/50 bg-card p-6 shadow-md transition-all hover:shadow-lg;
   }
-  
+
   .section-padding {
-    @apply py-20 px-6 md:px-8 lg:px-12;
+    @apply py-16 px-4 md:px-6 lg:px-8;
   }
 
   .container-custom {
@@ -65,94 +136,32 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70;
   }
-  
+
   .hero-button {
-    @apply rounded-full transition-all duration-300 px-6 py-3 font-medium shadow-md hover:shadow-lg;
+    @apply rounded-md transition-all duration-300 px-6 py-2 font-medium shadow-md hover:shadow-lg;
   }
-  
+
   .input-premium {
-    @apply rounded-lg border-border/50 focus:border-accent focus:ring-accent;
+    @apply rounded-md border-border/50 bg-card/50 text-foreground focus:border-accent focus:ring-accent;
   }
 
   .material-card {
-    @apply bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300;
+    @apply bg-card rounded-md border border-border/20 shadow-md hover:shadow-lg transition-all duration-300;
   }
-  
+
   .material-header {
-    @apply bg-gradient-to-r from-slate-700 to-slate-800 text-white p-4 rounded-t-xl;
+    @apply bg-gradient-to-r from-muted to-muted/80 text-foreground p-4 rounded-t-md;
   }
-  
-  .hero-gradient-overlay {
-    @apply bg-gradient-to-r from-black/60 via-black/40 to-transparent;
-  }
-  
-  .hero-content-card {
-    @apply bg-white/95 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-gray-100;
-  }
-  
-  .hero-search-input {
-    @apply pl-4 pr-10 py-6 rounded-l-md border-r-0 shadow-md w-full text-base focus-visible:ring-slate-400;
-  }
-  
-  .hero-search-button {
-    @apply rounded-r-md bg-slate-800 hover:bg-slate-700 text-white h-auto py-6 px-6;
-  }
-  
-  .hero-indicator {
-    @apply w-2.5 h-2.5 rounded-full transition-all duration-300;
-  }
-  
-  .hero-indicator-active {
-    @apply bg-white scale-110 w-8;
-  }
-  
-  .hero-indicator-inactive {
-    @apply bg-white/60 hover:bg-white/80;
-  }
-  
-  .popular-tag {
-    @apply inline-block m-1 px-2 py-1 bg-slate-100 rounded-full cursor-pointer hover:bg-slate-200 transition-colors;
-  }
-  
-  /* Dark theme components */
-  .dark-card {
-    @apply bg-slate-800 border-slate-700 rounded-xl shadow-lg overflow-hidden;
-  }
-  
-  .dark-gradient {
-    @apply bg-gradient-to-br from-slate-900 to-slate-800;
-  }
-  
-  .dark-button {
-    @apply bg-slate-700 hover:bg-slate-600 text-white transition-colors;
-  }
-  
+
   .scrollbar-none {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-none::-webkit-scrollbar {
     display: none;
-  }
-  
-  /* Steam-inspired components */
-  .steam-input {
-    @apply bg-slate-800/80 border-slate-700 text-white focus:bg-slate-800 focus:border-slate-600;
-  }
-  
-  .steam-card {
-    @apply bg-slate-800/90 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden shadow-lg;
-  }
-  
-  .steam-button {
-    @apply bg-slate-700 hover:bg-slate-600 text-white rounded transition-colors;
-  }
-  
-  .steam-tag {
-    @apply px-2 py-1 text-xs bg-slate-800/80 text-slate-300 rounded-full cursor-pointer hover:bg-slate-700/80 transition-colors;
   }
 }
 
@@ -160,15 +169,15 @@
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
-  
+
   .card-hover {
     @apply transition-transform duration-200 hover:scale-[1.02] hover:shadow-xl;
   }
-  
+
   .text-glow {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
   }
-  
+
   .bg-dark-gradient {
     background: linear-gradient(to bottom, #1b2838, #121a24);
   }

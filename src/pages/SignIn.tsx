@@ -1,13 +1,19 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
-import { Mail, Lock, ArrowRight } from "lucide-react";
+import { Mail, Lock, ArrowRight, LogIn } from "lucide-react";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -18,7 +24,7 @@ const SignIn = () => {
   const handleEmailSignIn = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate sign-in process
     setTimeout(() => {
       setIsLoading(false);
@@ -29,7 +35,7 @@ const SignIn = () => {
 
   const handleGoogleSignIn = () => {
     setIsLoading(true);
-    
+
     // Simulate Google sign-in process
     setTimeout(() => {
       setIsLoading(false);
@@ -39,83 +45,103 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen bg-hero-gradient">
+    <div className="min-h-screen bg-background">
       <Navigation />
       <div className="container-custom pt-32 pb-10 flex justify-center">
-        <Card className="w-full max-w-md shadow-premium">
+        <Card className="w-full max-w-md bg-card border-border/20 shadow-lg">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-center text-primary">Welcome Back</CardTitle>
-            <CardDescription className="text-center">
+            <CardTitle className="text-2xl font-bold text-center text-foreground">
+              Welcome Back
+            </CardTitle>
+            <CardDescription className="text-center text-foreground/70">
               Sign in to your account to continue
             </CardDescription>
           </CardHeader>
-          
+
           <CardContent className="space-y-6">
             <form onSubmit={handleEmailSignIn} className="space-y-5">
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium">Email</Label>
+                <Label
+                  htmlFor="email"
+                  className="text-sm font-medium text-foreground/90"
+                >
+                  Email
+                </Label>
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/50">
                     <Mail className="h-5 w-5" />
                   </div>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    placeholder="name@example.com" 
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="name@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10 input-premium"
+                    className="pl-10 netflix-search"
                     required
                   />
                 </div>
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="password" className="text-sm font-medium">Password</Label>
-                  <Button variant="link" className="text-xs p-0 h-auto text-accent" type="button">
+                  <Label
+                    htmlFor="password"
+                    className="text-sm font-medium text-foreground/90"
+                  >
+                    Password
+                  </Label>
+                  <Button
+                    variant="link"
+                    className="text-xs p-0 h-auto text-accent"
+                    type="button"
+                  >
                     Forgot password?
                   </Button>
                 </div>
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/50">
                     <Lock className="h-5 w-5" />
                   </div>
-                  <Input 
-                    id="password" 
-                    type="password" 
+                  <Input
+                    id="password"
+                    type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 input-premium"
+                    className="pl-10 netflix-search"
                     required
                   />
                 </div>
               </div>
-              <Button 
-                type="submit" 
-                className="w-full bg-accent hover:bg-accent-dark text-white rounded-lg h-11 font-medium" 
+              <Button
+                type="submit"
+                className="netflix-button-primary w-full h-11"
                 disabled={isLoading}
               >
-                {isLoading ? "Signing in..." : (
-                  <span className="flex items-center">
-                    Sign In <ArrowRight className="ml-2 h-4 w-4" />
+                {isLoading ? (
+                  "Signing in..."
+                ) : (
+                  <span className="flex items-center justify-center">
+                    <LogIn className="mr-2 h-4 w-4" /> Sign In
                   </span>
                 )}
               </Button>
             </form>
-            
+
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t border-border/50" />
+                <span className="w-full border-t border-border/30" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+                <span className="bg-card px-2 text-foreground/50">
+                  Or continue with
+                </span>
               </div>
             </div>
-            
-            <Button 
-              variant="outline" 
-              type="button" 
-              className="w-full rounded-lg h-11 border-border/50 hover:bg-accent/5 hover:border-accent/50 transition-all duration-300" 
+
+            <Button
+              variant="outline"
+              type="button"
+              className="w-full rounded-md h-11 border-border/30 bg-card/80 text-foreground hover:bg-card hover:border-accent/50 transition-all duration-300"
               onClick={handleGoogleSignIn}
               disabled={isLoading}
             >
@@ -141,11 +167,15 @@ const SignIn = () => {
               Sign in with Google
             </Button>
           </CardContent>
-          
+
           <CardFooter className="flex flex-col space-y-4">
-            <div className="text-center text-sm">
+            <div className="text-center text-sm text-foreground/70">
               Don't have an account?{" "}
-              <Button variant="link" className="p-0 h-auto text-accent" onClick={() => navigate("/signup")}>
+              <Button
+                variant="link"
+                className="p-0 h-auto text-accent"
+                onClick={() => navigate("/signup")}
+              >
                 Sign up
               </Button>
             </div>

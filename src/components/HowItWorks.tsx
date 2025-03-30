@@ -1,32 +1,42 @@
-
 import { CheckCircle2, Search, Heart, Calendar } from "lucide-react";
 
 const steps = [
   {
     icon: Search,
     title: "Find Services",
-    description: "Browse through thousands of services in various categories that match your needs"
+    description:
+      "Browse through thousands of services in various categories that match your needs",
   },
   {
     icon: Heart,
     title: "Choose a Service",
-    description: "Compare service packages, read reviews, and select the perfect provider for your project"
+    description:
+      "Compare service packages, read reviews, and select the perfect provider for your project",
   },
   {
     icon: Calendar,
     title: "Get It Done",
-    description: "Communicate, collaborate, and quickly get your project completed by professionals"
+    description:
+      "Communicate, collaborate, and quickly get your project completed by professionals",
   },
   {
     icon: CheckCircle2,
     title: "Leave a Review",
-    description: "Share your experience to help the community and support great service providers"
-  }
+    description:
+      "Share your experience to help the community and support great service providers",
+  },
 ];
+
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { Button } from "./ui/button";
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section
+      id="how-it-works"
+      className="py-20 bg-gradient-to-b from-gray-50 to-white"
+    >
       <div className="container-custom">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -36,7 +46,7 @@ export default function HowItWorks() {
             Get your project done in four simple steps
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => {
             const Icon = step.icon;
@@ -55,11 +65,21 @@ export default function HowItWorks() {
                     {index + 1}
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold text-primary mt-4">{step.title}</h3>
+                <h3 className="text-xl font-semibold text-primary mt-4">
+                  {step.title}
+                </h3>
                 <p className="text-secondary">{step.description}</p>
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-12 text-center animate-fade-up">
+          <Link to="/how-it-works">
+            <Button className="netflix-button-primary">
+              Learn More <ArrowRight className="ml-1 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

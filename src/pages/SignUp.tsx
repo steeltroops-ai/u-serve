@@ -1,13 +1,19 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
-import { Mail, Lock, User, ArrowRight } from "lucide-react";
+import { Mail, Lock, User, UserPlus } from "lucide-react";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -19,7 +25,7 @@ const SignUp = () => {
   const handleSignUp = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate sign-up process
     setTimeout(() => {
       setIsLoading(false);
@@ -30,7 +36,7 @@ const SignUp = () => {
 
   const handleGoogleSignUp = () => {
     setIsLoading(true);
-    
+
     // Simulate Google sign-up process
     setTimeout(() => {
       setIsLoading(false);
@@ -40,95 +46,116 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-hero-gradient">
+    <div className="min-h-screen bg-background">
       <Navigation />
       <div className="container-custom pt-32 pb-10 flex justify-center">
-        <Card className="w-full max-w-md shadow-premium">
+        <Card className="w-full max-w-md bg-card border-border/20 shadow-lg">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-center text-primary">Create an account</CardTitle>
-            <CardDescription className="text-center">
+            <CardTitle className="text-2xl font-bold text-center text-foreground">
+              Create an account
+            </CardTitle>
+            <CardDescription className="text-center text-foreground/70">
               Join our community of service providers and customers
             </CardDescription>
           </CardHeader>
-          
+
           <CardContent className="space-y-6">
             <form onSubmit={handleSignUp} className="space-y-5">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-sm font-medium">Full Name</Label>
+                <Label
+                  htmlFor="name"
+                  className="text-sm font-medium text-foreground/90"
+                >
+                  Full Name
+                </Label>
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/50">
                     <User className="h-5 w-5" />
                   </div>
-                  <Input 
-                    id="name" 
-                    type="text" 
-                    placeholder="John Doe" 
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="John Doe"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="pl-10 input-premium"
+                    className="pl-10 netflix-search"
                     required
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium">Email</Label>
+                <Label
+                  htmlFor="email"
+                  className="text-sm font-medium text-foreground/90"
+                >
+                  Email
+                </Label>
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/50">
                     <Mail className="h-5 w-5" />
                   </div>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    placeholder="name@example.com" 
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="name@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10 input-premium"
+                    className="pl-10 netflix-search"
                     required
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-sm font-medium">Password</Label>
+                <Label
+                  htmlFor="password"
+                  className="text-sm font-medium text-foreground/90"
+                >
+                  Password
+                </Label>
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/50">
                     <Lock className="h-5 w-5" />
                   </div>
-                  <Input 
-                    id="password" 
-                    type="password" 
+                  <Input
+                    id="password"
+                    type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 input-premium"
+                    className="pl-10 netflix-search"
                     required
                   />
                 </div>
               </div>
-              <Button 
-                type="submit" 
-                className="w-full bg-accent hover:bg-accent-dark text-white rounded-lg h-11 font-medium" 
+              <Button
+                type="submit"
+                className="netflix-button-primary w-full h-11"
                 disabled={isLoading}
               >
-                {isLoading ? "Creating account..." : (
-                  <span className="flex items-center">
-                    Create Account <ArrowRight className="ml-2 h-4 w-4" />
+                {isLoading ? (
+                  "Creating account..."
+                ) : (
+                  <span className="flex items-center justify-center">
+                    <UserPlus className="mr-2 h-4 w-4" /> Create Account
                   </span>
                 )}
               </Button>
             </form>
-            
+
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t border-border/50" />
+                <span className="w-full border-t border-border/30" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+                <span className="bg-card px-2 text-foreground/50">
+                  Or continue with
+                </span>
               </div>
             </div>
-            
-            <Button 
-              variant="outline" 
-              type="button" 
-              className="w-full rounded-lg h-11 border-border/50 hover:bg-accent/5 hover:border-accent/50 transition-all duration-300" 
+
+            <Button
+              variant="outline"
+              type="button"
+              className="w-full rounded-md h-11 border-border/30 bg-card/80 text-foreground hover:bg-card hover:border-accent/50 transition-all duration-300"
               onClick={handleGoogleSignUp}
               disabled={isLoading}
             >
@@ -154,11 +181,15 @@ const SignUp = () => {
               Sign up with Google
             </Button>
           </CardContent>
-          
+
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-center text-sm">
               Already have an account?{" "}
-              <Button variant="link" className="p-0 h-auto text-accent" onClick={() => navigate("/signin")}>
+              <Button
+                variant="link"
+                className="p-0 h-auto text-accent"
+                onClick={() => navigate("/signin")}
+              >
                 Sign in
               </Button>
             </div>
