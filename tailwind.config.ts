@@ -28,7 +28,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          light: "hsl(160 56% 25%)", // Added primary-light color
+          light: "hsl(143 48% 35%)", // Lighter green
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -53,6 +53,12 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        // South African Heritage Theme specific colors
+        saHeritage: {
+          green: "#1E5631", // Deep green
+          gold: "#FFB81C",  // Rich gold
+          red: "#E03C31",   // Highlight red
         },
       },
       keyframes: {
@@ -107,8 +113,9 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, #1C5E48 0%, #0A2B21 100%)',
-        'card-gradient': 'linear-gradient(135deg, #f5f7fa 0%, #E2F3EB 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #1E5631 0%, #166B3A 100%)',
+        'card-gradient': 'linear-gradient(135deg, #f5f7fa 0%, #E4F0E8 100%)',
+        'sa-gradient': 'linear-gradient(135deg, #1E5631 0%, #FFB81C 100%)',
       },
     },
   },
