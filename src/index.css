@@ -7,8 +7,8 @@
 
 @layer base {
   :root {
-    /* Light Mode - South African Heritage Premium Theme */
-    --background: 0 0% 100%; /* White background */
+    /* Premium South African Heritage Theme - Light Mode */
+    --background: 0 0% 100%; /* Pure white background */
     --foreground: 0 0% 10%; /* Near-black text */
     --card: 0 0% 98%; /* Slightly off-white card background */
     --card-foreground: 0 0% 10%; /* Near-black text on cards */
@@ -40,8 +40,8 @@
   }
 
   .dark {
-    /* Dark Mode - South African Heritage Premium Theme */
-    --background: 220 13% 10%; /* Dark background #181c22 */
+    /* Premium South African Heritage Theme - Dark Mode */
+    --background: 220 13% 10%; /* Rich dark background #181c22 */
     --foreground: 0 0% 98%; /* Off-white text */
     --card: 220 13% 12%; /* Slightly lighter card background */
     --card-foreground: 0 0% 98%; /* Off-white text on cards */
