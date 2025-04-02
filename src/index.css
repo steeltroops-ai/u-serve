@@ -7,17 +7,18 @@
 
 @layer base {
   :root {
-    /* South African Heritage Theme */
+    /* Light Mode - South African Heritage Premium Theme */
     --background: 0 0% 100%; /* White background */
-    --foreground: 0 0% 0%; /* Black text */
+    --foreground: 0 0% 10%; /* Near-black text */
     --card: 0 0% 98%; /* Slightly off-white card background */
-    --card-foreground: 0 0% 0%; /* Black text on cards */
+    --card-foreground: 0 0% 10%; /* Near-black text on cards */
     --popover: 0 0% 98%; /* Popover background */
-    --popover-foreground: 0 0% 0%; /* Popover text */
+    --popover-foreground: 0 0% 10%; /* Popover text */
     --primary: 143 48% 23%; /* Deep green #1E5631 */
     --primary-foreground: 0 0% 100%; /* White text on primary */
+    --primary-light: 143 48% 35%; /* Lighter green */
     --secondary: 44 100% 55%; /* Rich gold #FFB81C */
-    --secondary-foreground: 0 0% 0%; /* Black text on secondary */
+    --secondary-foreground: 0 0% 10%; /* Near-black text on secondary */
     --muted: 0 0% 96%; /* Muted background */
     --muted-foreground: 0 0% 45%; /* Muted text */
     --accent: 7 75% 53%; /* Highlight red #E03C31 */
@@ -27,7 +28,46 @@
     --border: 0 0% 90%; /* Subtle borders */
     --input: 0 0% 90%; /* Input borders */
     --ring: 143 48% 23%; /* Focus ring (green) */
+
+    /* South African Heritage Premium Theme colors */
+    --sa-green: 143 48% 23%; /* #1E5631 */
+    --sa-green-dark: 143 48% 18%; /* Darker green */
+    --sa-gold: 44 100% 55%; /* #FFB81C */
+    --sa-gold-light: 44 90% 65%; /* Lighter gold */
+    --sa-red: 7 75% 53%; /* #E03C31 */
+
     --radius: 0.5rem; /* Slightly smaller radius for modern look */
+  }
+
+  .dark {
+    /* Dark Mode - South African Heritage Premium Theme */
+    --background: 220 13% 10%; /* Dark background #181c22 */
+    --foreground: 0 0% 98%; /* Off-white text */
+    --card: 220 13% 12%; /* Slightly lighter card background */
+    --card-foreground: 0 0% 98%; /* Off-white text on cards */
+    --popover: 220 13% 12%; /* Popover background */
+    --popover-foreground: 0 0% 98%; /* Off-white text on popovers */
+    --primary: 143 40% 38%; /* Brighter green for dark mode #2a7d4f */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --primary-light: 143 40% 48%; /* Lighter green for dark mode */
+    --secondary: 44 90% 60%; /* Slightly brighter gold for dark mode */
+    --secondary-foreground: 0 0% 10%; /* Near-black text on secondary */
+    --muted: 220 13% 16%; /* Slightly lighter muted background */
+    --muted-foreground: 0 0% 65%; /* Lighter muted text */
+    --accent: 7 70% 58%; /* Slightly brighter red for dark mode */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --destructive: 7 70% 58%; /* Slightly brighter red for destructive */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive */
+    --border: 220 13% 18%; /* Slightly lighter borders */
+    --input: 220 13% 18%; /* Slightly lighter input borders */
+    --ring: 143 40% 38%; /* Focus ring (brightened green) */
+
+    /* South African Heritage Premium Theme colors - dark mode */
+    --sa-green: 143 40% 38%; /* Brighter green for dark mode */
+    --sa-green-dark: 143 40% 28%; /* Darker green for dark mode */
+    --sa-gold: 44 90% 60%; /* Slightly brighter gold for dark mode */
+    --sa-gold-light: 44 80% 70%; /* Lighter gold for dark mode */
+    --sa-red: 7 70% 58%; /* Slightly brighter red for dark mode */
   }
 
   * {
@@ -40,7 +80,7 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased transition-colors duration-300;
   }
 
   h1,
@@ -54,9 +94,22 @@
 }
 
 @layer components {
-  /* Netflix-inspired components with updated colors */
+  /* Premium Glossy UI Components */
+  .premium-card {
+    @apply bg-card border border-border/30 rounded-lg overflow-hidden shadow-premium transition-all duration-300 hover:shadow-gold;
+  }
+
+  .premium-button {
+    @apply bg-sa-gradient text-white rounded-md px-6 py-2.5 font-medium shadow-md hover:shadow-gold transition-all duration-300 hover:scale-[1.02];
+  }
+
+  .premium-input {
+    @apply bg-background/80 backdrop-blur-sm border border-border/50 rounded-md px-4 py-2.5 focus:ring-2 focus:ring-secondary/50 focus:border-secondary transition-all;
+  }
+
+  /* Netflix-inspired components with updated premium colors */
   .netflix-card {
-    @apply bg-card border-none rounded-md overflow-hidden shadow-md transition-all duration-300 hover:scale-105;
+    @apply bg-card border-none rounded-md overflow-hidden shadow-md transition-all duration-300 hover:scale-105 hover:shadow-premium;
   }
 
   .netflix-row {
@@ -80,15 +133,15 @@
   }
 
   .netflix-button-primary {
-    @apply bg-primary hover:bg-primary/90 text-white rounded-md px-6 py-2 font-medium transition-colors;
+    @apply bg-primary hover:bg-primary/90 text-white rounded-md px-6 py-2 font-medium transition-colors shadow-md hover:shadow-lg;
   }
 
   .netflix-button-secondary {
-    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-md px-6 py-2 font-medium transition-colors;
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-md px-6 py-2 font-medium transition-colors shadow-md hover:shadow-lg;
   }
 
   .netflix-search {
-    @apply bg-card/50 border border-border/50 text-foreground rounded-md px-4 py-2 focus:ring-1 focus:ring-primary focus:border-primary;
+    @apply bg-card/50 backdrop-blur-sm border border-border/50 text-foreground rounded-md px-4 py-2 focus:ring-1 focus:ring-primary focus:border-primary;
   }
 
   .netflix-nav {
@@ -144,17 +197,17 @@
     @apply bg-white/40 hover:bg-white/60;
   }
 
-  /* South African themed components */
+  /* South African themed premium components */
   .sa-card {
-    @apply rounded-md border border-border bg-card p-6 shadow-md transition-all hover:shadow-lg;
+    @apply rounded-md border border-border/30 bg-card p-6 shadow-md transition-all hover:shadow-premium;
   }
 
   .sa-button-primary {
-    @apply bg-primary text-white rounded-md transition-all duration-300 px-6 py-2 font-medium shadow-md hover:shadow-lg hover:bg-primary/90;
+    @apply bg-primary text-white rounded-md transition-all duration-300 px-6 py-2 font-medium shadow-md hover:shadow-gold hover:bg-primary/90;
   }
 
   .sa-button-secondary {
-    @apply bg-secondary text-secondary-foreground rounded-md transition-all duration-300 px-6 py-2 font-medium shadow-md hover:shadow-lg hover:bg-secondary/90;
+    @apply bg-secondary text-secondary-foreground rounded-md transition-all duration-300 px-6 py-2 font-medium shadow-md hover:shadow-premium hover:bg-secondary/90;
   }
 
   .sa-section {
@@ -165,13 +218,34 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Legacy components with updated styling */
+  /* Premium UI components */
   .glass-card {
     @apply bg-card/80 backdrop-blur-md border border-border/20 shadow-lg rounded-md;
   }
 
+  .premium-dropdown {
+    @apply rounded-md bg-card/95 backdrop-blur-md border border-border/30 shadow-premium;
+  }
+
+  .premium-input-group {
+    @apply flex items-center space-x-2 bg-background/80 backdrop-blur-sm border border-border/50 rounded-md px-3 py-1.5 focus-within:ring-2 focus-within:ring-secondary/50 focus-within:border-secondary transition-all;
+  }
+
+  .premium-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary/20 text-secondary-foreground;
+  }
+
+  .premium-toggle {
+    @apply relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+  }
+
+  .premium-toggle-thumb {
+    @apply pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out;
+  }
+
+  /* Legacy components with updated styling */
   .premium-card {
-    @apply rounded-md border border-border/50 bg-card p-6 shadow-md transition-all hover:shadow-lg;
+    @apply rounded-md border border-border/50 bg-card p-6 shadow-md transition-all hover:shadow-premium;
   }
 
   .section-padding {
@@ -225,11 +299,23 @@
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
   }
 
+  .text-gold-glow {
+    text-shadow: 0 0 8px rgba(255, 184, 28, 0.7);
+  }
+
   .bg-dark-gradient {
     background: linear-gradient(to bottom, #1b2838, #121a24);
   }
 
   .bg-sa-gradient {
-    background: linear-gradient(135deg, #1E5631 0%, #1E5631CC 100%);
+    @apply bg-gradient-to-br from-saHeritage-green to-saHeritage-green/80;
+  }
+
+  .bg-gold-gradient {
+    @apply bg-gradient-to-br from-saHeritage-gold to-saHeritage-gold/80;
+  }
+
+  .premium-shadow {
+    @apply shadow-premium hover:shadow-gold transition-shadow duration-300;
   }
 }

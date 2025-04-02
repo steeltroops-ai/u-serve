@@ -1,3 +1,4 @@
+
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,6 +15,9 @@ import {
   LogOut,
   Heart,
   ShoppingBag,
+  Sun,
+  Moon,
+  Monitor,
 } from "lucide-react";
 import { Input } from "./ui/input";
 import {
@@ -24,8 +28,13 @@ import {
   DropdownMenuTrigger,
   DropdownMenuLabel,
   DropdownMenuGroup,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
 } from "./ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { ThemeToggle } from "./ThemeToggle";
+import { useTheme } from "./ThemeProvider";
 
 export default function Navigation() {
   // Mock authentication state - in a real app, this would come from your auth context/provider
@@ -36,6 +45,7 @@ export default function Navigation() {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentLocation, setCurrentLocation] = useState("Kampala");
   const navigate = useNavigate();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -160,7 +170,7 @@ export default function Navigation() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
                     align="end"
-                    className="w-56 p-2 animate-scale-up"
+                    className="premium-dropdown w-56 p-2 animate-scale-up"
                   >
                     <DropdownMenuLabel className="font-normal">
                       <div className="flex flex-col space-y-1">
@@ -198,6 +208,11 @@ export default function Navigation() {
               </div>
             )}
 
+            {/* Theme Toggle - Desktop Only */}
+            <div className="hidden md:flex items-center">
+              <ThemeToggle />
+            </div>
+
             {/* Notifications - Desktop Only */}
             <div className="hidden md:flex items-center">
               <button className="relative p-2 rounded-full hover:bg-accent/10 transition-all duration-200">
@@ -225,7 +240,7 @@ export default function Navigation() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="end"
-                  className="w-56 p-2 animate-scale-up"
+                  className="premium-dropdown w-56 p-2 animate-scale-up"
                 >
                   <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
@@ -267,6 +282,36 @@ export default function Navigation() {
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>
+                      <Sun className="mr-2 h-4 w-4" />
+                      <span>Theme</span>
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuSubContent className="premium-dropdown">
+                      <DropdownMenuItem
+                        onClick={() => setTheme("light")}
+                        className="cursor-pointer"
+                      >
+                        <Sun className="mr-2 h-4 w-4" />
+                        <span>Light</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => setTheme("dark")}
+                        className="cursor-pointer"
+                      >
+                        <Moon className="mr-2 h-4 w-4" />
+                        <span>Dark</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => setTheme("system")}
+                        className="cursor-pointer"
+                      >
+                        <Monitor className="mr-2 h-4 w-4" />
+                        <span>System</span>
+                      </DropdownMenuItem>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuSub>
+                  <DropdownMenuSeparator />
                   <DropdownMenuItem
                     onClick={() => navigate("/signin")}
                     className="cursor-pointer"
@@ -307,7 +352,7 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-card/95 backdrop-blur-sm shadow-lg rounded-b-md animate-fade-down border border-border/20">
+          <div className="md:hidden premium-dropdown rounded-b-md animate-fade-down">
             <div className="flex flex-col space-y-4 p-6">
               <div className="flex items-center text-sm text-foreground/80 mb-2">
                 <MapPin className="h-4 w-4 mr-1" />
@@ -381,6 +426,41 @@ export default function Navigation() {
                     <MessageSquare className="h-4 w-4 mr-2" />
                     Messages
                   </Link>
+                </div>
+              </div>
+              <div className="py-2">
+                <h3 className="text-sm font-medium mb-2">Theme</h3>
+                <div className="ml-2 flex flex-col space-y-2">
+                  <button
+                    className="text-sm text-foreground/80 hover:text-foreground transition-colors flex items-center"
+                    onClick={() => {
+                      setTheme("light");
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <Sun className="h-4 w-4 mr-2" />
+                    Light Mode
+                  </button>
+                  <button
+                    className="text-sm text-foreground/80 hover:text-foreground transition-colors flex items-center"
+                    onClick={() => {
+                      setTheme("dark");
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <Moon className="h-4 w-4 mr-2" />
+                    Dark Mode
+                  </button>
+                  <button
+                    className="text-sm text-foreground/80 hover:text-foreground transition-colors flex items-center"
+                    onClick={() => {
+                      setTheme("system");
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <Monitor className="h-4 w-4 mr-2" />
+                    System Default
+                  </button>
                 </div>
               </div>
               <div className="pt-4 flex flex-col space-y-3">

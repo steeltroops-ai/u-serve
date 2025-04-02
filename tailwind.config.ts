@@ -28,7 +28,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          light: "hsl(143 48% 35%)", // Lighter green
+          light: "hsl(var(--primary-light))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -54,11 +54,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // South African Heritage Theme specific colors
+        // South African Heritage Theme Premium colors
         saHeritage: {
-          green: "#1E5631", // Deep green
-          gold: "#FFB81C",  // Rich gold
-          red: "#E03C31",   // Highlight red
+          green: "hsl(var(--sa-green))",
+          gold: "hsl(var(--sa-gold))",
+          red: "hsl(var(--sa-red))",
         },
       },
       keyframes: {
@@ -100,22 +100,35 @@ export default {
             opacity: "1",
           },
         },
+        "glow-pulse": {
+          "0%, 100%": {
+            boxShadow: "0 0 15px 2px rgba(255, 184, 28, 0.4)",
+          },
+          "50%": {
+            boxShadow: "0 0 25px 5px rgba(255, 184, 28, 0.7)",
+          },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
         "fade-down": "fade-down 0.5s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
         "scale-up": "scale-up 0.4s ease-out",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
       },
       boxShadow: {
-        'premium': '0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'premium': '0 10px 30px -5px rgba(0, 0, 0, 0.2), 0 8px 15px -8px rgba(0, 0, 0, 0.2)',
         'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'gold': '0 8px 20px -4px rgba(255, 184, 28, 0.5)',
+        'dark': '0 8px 20px -4px rgba(0, 0, 0, 0.3)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, #1E5631 0%, #166B3A 100%)',
-        'card-gradient': 'linear-gradient(135deg, #f5f7fa 0%, #E4F0E8 100%)',
-        'sa-gradient': 'linear-gradient(135deg, #1E5631 0%, #FFB81C 100%)',
+        'hero-gradient': 'linear-gradient(135deg, hsl(var(--sa-green)) 0%, hsl(var(--sa-green)/0.85) 100%)',
+        'card-gradient': 'linear-gradient(135deg, hsl(var(--card)/0.9) 0%, hsl(var(--card)) 100%)',
+        'sa-gradient': 'linear-gradient(135deg, hsl(var(--sa-green)) 0%, hsl(var(--sa-gold)/0.8) 100%)',
+        'premium-gradient': 'linear-gradient(135deg, hsl(var(--sa-green)) 0%, hsl(var(--sa-green-dark)) 100%)',
+        'gold-gradient': 'linear-gradient(135deg, hsl(var(--sa-gold)) 0%, hsl(var(--sa-gold-light)) 100%)',
       },
     },
   },
