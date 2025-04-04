@@ -23,6 +23,16 @@ const queryClient = new QueryClient({
   },
 });
 
+// Let's create a placeholder provider dashboard page
+const ProviderDashboard = () => (
+  <div className="min-h-screen bg-background flex items-center justify-center">
+    <div className="text-center">
+      <h1 className="text-4xl font-bold mb-4">Provider Dashboard</h1>
+      <p className="text-lg text-muted-foreground">Welcome to your service provider dashboard!</p>
+    </div>
+  </div>
+);
+
 const App = () => (
   <React.StrictMode>
     <ThemeProvider defaultTheme="system" storageKey="localserve-theme">
@@ -37,6 +47,11 @@ const App = () => (
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
+              
+              {/* Provider routes */}
+              <Route path="/provider/dashboard" element={<ProviderDashboard />} />
+              <Route path="/provider/signup" element={<SignUp />} />
+              
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

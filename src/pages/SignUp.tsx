@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -10,45 +11,71 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@radix-ui/react-label";
+import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
-import { Mail, Lock, User, UserPlus } from "lucide-react";
+import { Mail, Lock, User, UserPlus, Briefcase } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [isProvider, setIsProvider] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSignUp = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate sign-up process
-    setTimeout(() => {
+    try {
+      // Simulate sign-up process
+      setTimeout(() => {
+        setIsLoading(false);
+        toast.success("Account created successfully!");
+        
+        // Redirect based on user type
+        if (isProvider) {
+          navigate("/provider/dashboard");
+        } else {
+          navigate("/services");
+        }
+      }, 1500);
+    } catch (error) {
       setIsLoading(false);
-      toast.success("Account created successfully!");
-      navigate("/services");
-    }, 1500);
+      toast.error("Sign up failed. Please try again.");
+      console.error("Sign up error:", error);
+    }
   };
 
   const handleGoogleSignUp = () => {
     setIsLoading(true);
 
-    // Simulate Google sign-up process
-    setTimeout(() => {
+    try {
+      // Simulate Google sign-up process
+      setTimeout(() => {
+        setIsLoading(false);
+        toast.success("Account created with Google!");
+        
+        // Redirect based on user type
+        if (isProvider) {
+          navigate("/provider/dashboard");
+        } else {
+          navigate("/services");
+        }
+      }, 1500);
+    } catch (error) {
       setIsLoading(false);
-      toast.success("Account created with Google!");
-      navigate("/services");
-    }, 1500);
+      toast.error("Google sign up failed. Please try again.");
+      console.error("Google sign up error:", error);
+    }
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <div className="container-custom pt-32 pb-10 flex justify-center">
+      <div className="container-custom pt-20 pb-10 flex justify-center">
         <Card className="w-full max-w-md bg-card border-border/20 shadow-lg">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold text-center text-foreground">
@@ -60,7 +87,7 @@ const SignUp = () => {
           </CardHeader>
 
           <CardContent className="space-y-6">
-            <form onSubmit={handleSignUp} className="space-y-5">
+            <form onSubmit={handleSignUp} className="space-y-4">
               <div className="space-y-2">
                 <Label
                   htmlFor="name"
@@ -125,6 +152,20 @@ const SignUp = () => {
                     required
                   />
                 </div>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox 
+                  id="isProvider" 
+                  checked={isProvider}
+                  onCheckedChange={(checked) => setIsProvider(checked as boolean)}
+                />
+                <Label 
+                  htmlFor="isProvider" 
+                  className="text-sm font-medium cursor-pointer flex items-center"
+                >
+                  <Briefcase className="mr-1 h-4 w-4" />
+                  I'm a service provider
+                </Label>
               </div>
               <Button
                 type="submit"
