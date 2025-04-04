@@ -7,66 +7,66 @@
 
 @layer base {
   :root {
-    /* Premium South African Heritage Theme - Light Mode */
-    --background: 0 0% 100%; /* Pure white background */
-    --foreground: 0 0% 10%; /* Near-black text */
-    --card: 0 0% 98%; /* Slightly off-white card background */
-    --card-foreground: 0 0% 10%; /* Near-black text on cards */
-    --popover: 0 0% 98%; /* Popover background */
-    --popover-foreground: 0 0% 10%; /* Popover text */
+    /* Premium South African Luxury Theme - Light Mode */
+    --background: 20 30% 97%; /* Warm off-white background #f7f5f2 */
+    --foreground: 25 25% 15%; /* Rich dark text #322e29 */
+    --card: 20 30% 99%; /* Pure card background #fdfcfb */
+    --card-foreground: 25 25% 15%; /* Rich text on cards */
+    --popover: 20 30% 99%; /* Popover background */
+    --popover-foreground: 25 25% 15%; /* Popover text */
     --primary: 143 48% 23%; /* Deep green #1E5631 */
     --primary-foreground: 0 0% 100%; /* White text on primary */
     --primary-light: 143 48% 35%; /* Lighter green */
-    --secondary: 44 100% 55%; /* Rich gold #FFB81C */
-    --secondary-foreground: 0 0% 10%; /* Near-black text on secondary */
-    --muted: 0 0% 96%; /* Muted background */
-    --muted-foreground: 0 0% 45%; /* Muted text */
+    --secondary: 38 90% 55%; /* Rich gold #F5B60C - more vibrant */
+    --secondary-foreground: 25 25% 15%; /* Dark text on secondary */
+    --muted: 20 20% 96%; /* Muted background */
+    --muted-foreground: 25 25% 45%; /* Muted text */
     --accent: 7 75% 53%; /* Highlight red #E03C31 */
     --accent-foreground: 0 0% 100%; /* White text on accent */
     --destructive: 7 75% 53%; /* Red for destructive actions */
     --destructive-foreground: 0 0% 100%; /* Text on destructive */
-    --border: 0 0% 90%; /* Subtle borders */
-    --input: 0 0% 90%; /* Input borders */
+    --border: 25 15% 90%; /* Subtle borders */
+    --input: 25 15% 90%; /* Input borders */
     --ring: 143 48% 23%; /* Focus ring (green) */
 
     /* South African Heritage Premium Theme colors */
     --sa-green: 143 48% 23%; /* #1E5631 */
     --sa-green-dark: 143 48% 18%; /* Darker green */
-    --sa-gold: 44 100% 55%; /* #FFB81C */
-    --sa-gold-light: 44 90% 65%; /* Lighter gold */
+    --sa-gold: 38 90% 55%; /* #F5B60C - more vibrant */
+    --sa-gold-light: 38 85% 65%; /* Lighter gold */
     --sa-red: 7 75% 53%; /* #E03C31 */
 
     --radius: 0.5rem; /* Slightly smaller radius for modern look */
   }
 
   .dark {
-    /* Premium South African Heritage Theme - Dark Mode */
-    --background: 220 13% 10%; /* Rich dark background #181c22 */
-    --foreground: 0 0% 98%; /* Off-white text */
-    --card: 220 13% 12%; /* Slightly lighter card background */
-    --card-foreground: 0 0% 98%; /* Off-white text on cards */
-    --popover: 220 13% 12%; /* Popover background */
-    --popover-foreground: 0 0% 98%; /* Off-white text on popovers */
-    --primary: 143 40% 38%; /* Brighter green for dark mode #2a7d4f */
+    /* Premium South African Luxury Theme - Dark Mode */
+    --background: 215 32% 10%; /* Rich dark blue-gray background #111A24 */
+    --foreground: 20 15% 95%; /* Off-white text */
+    --card: 215 32% 13%; /* Slightly lighter card background #15202b */
+    --card-foreground: 20 15% 95%; /* Off-white text on cards */
+    --popover: 215 32% 13%; /* Popover background */
+    --popover-foreground: 20 15% 95%; /* Off-white text on popovers */
+    --primary: 143 40% 43%; /* Brighter green for dark mode #2d8e59 */
     --primary-foreground: 0 0% 100%; /* White text on primary */
-    --primary-light: 143 40% 48%; /* Lighter green for dark mode */
-    --secondary: 44 90% 60%; /* Slightly brighter gold for dark mode */
-    --secondary-foreground: 0 0% 10%; /* Near-black text on secondary */
-    --muted: 220 13% 16%; /* Slightly lighter muted background */
-    --muted-foreground: 0 0% 65%; /* Lighter muted text */
+    --primary-light: 143 40% 53%; /* Lighter green for dark mode */
+    --secondary: 38 85% 60%; /* Slightly brighter gold for dark mode */
+    --secondary-foreground: 215 32% 13%; /* Dark text on secondary */
+    --muted: 215 32% 16%; /* Slightly lighter muted background */
+    --muted-foreground: 20 15% 65%; /* Lighter muted text */
     --accent: 7 70% 58%; /* Slightly brighter red for dark mode */
     --accent-foreground: 0 0% 100%; /* White text on accent */
     --destructive: 7 70% 58%; /* Slightly brighter red for destructive */
     --destructive-foreground: 0 0% 100%; /* White text on destructive */
-    --border: 220 13% 18%; /* Slightly lighter borders */
-    --input: 220 13% 18%; /* Slightly lighter input borders */
-    --ring: 143 40% 38%; /* Focus ring (brightened green) */
+    --border: 215 32% 18%; /* Slightly lighter borders */
+    --input: 215 32% 18%; /* Slightly lighter input borders */
+    --ring: 143 40% 43%; /* Focus ring (brightened green) */
 
     /* South African Heritage Premium Theme colors - dark mode */
-    --sa-green: 143 40% 38%; /* Brighter green for dark mode */
-    --sa-green-dark: 143 40% 28%; /* Darker green for dark mode */
-    --sa-gold: 44 90% 60%; /* Slightly brighter gold for dark mode */
-    --sa-gold-light: 44 80% 70%; /* Lighter gold for dark mode */
+    --sa-green: 143 40% 43%; /* Brighter green for dark mode */
+    --sa-green-dark: 143 40% 33%; /* Darker green for dark mode */
+    --sa-gold: 38 85% 60%; /* Slightly brighter gold for dark mode */
+    --sa-gold-light: 38 75% 70%; /* Lighter gold for dark mode */
     --sa-red: 7 70% 58%; /* Slightly brighter red for dark mode */
   }
 

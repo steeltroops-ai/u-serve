@@ -108,6 +108,22 @@ export default {
             boxShadow: "0 0 25px 5px rgba(255, 184, 28, 0.7)",
           },
         },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          },
+        },
+        "shimmer": {
+          "0%": {
+            backgroundPosition: "-200% 0",
+          },
+          "100%": {
+            backgroundPosition: "200% 0",
+          },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
@@ -115,12 +131,16 @@ export default {
         "fade-in": "fade-in 0.5s ease-out",
         "scale-up": "scale-up 0.4s ease-out",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
+        "shimmer": "shimmer 2s linear infinite",
       },
       boxShadow: {
-        'premium': '0 10px 30px -5px rgba(0, 0, 0, 0.2), 0 8px 15px -8px rgba(0, 0, 0, 0.2)',
+        'premium': '0 10px 30px -5px rgba(0, 0, 0, 0.15), 0 8px 15px -8px rgba(0, 0, 0, 0.15)',
         'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'gold': '0 8px 20px -4px rgba(255, 184, 28, 0.5)',
+        'gold': '0 8px 20px -4px rgba(245, 182, 12, 0.5)',
         'dark': '0 8px 20px -4px rgba(0, 0, 0, 0.3)',
+        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.1)',
+        'inner-glow': 'inset 0 0 5px 1px rgba(245, 182, 12, 0.2)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -129,6 +149,11 @@ export default {
         'sa-gradient': 'linear-gradient(135deg, hsl(var(--sa-green)) 0%, hsl(var(--sa-gold)/0.8) 100%)',
         'premium-gradient': 'linear-gradient(135deg, hsl(var(--sa-green)) 0%, hsl(var(--sa-green-dark)) 100%)',
         'gold-gradient': 'linear-gradient(135deg, hsl(var(--sa-gold)) 0%, hsl(var(--sa-gold-light)) 100%)',
+        'shimmer-gradient': 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%)',
+      },
+      backdropFilter: {
+        'none': 'none',
+        'blur': 'blur(8px)',
       },
     },
   },
